@@ -1,0 +1,85 @@
+/* global React, Placeholder, NewsletterInline, MotifMountains */
+
+function AboutPage({ go }) {
+  return (
+    <div className="page">
+      <div className="page-head">
+        <div className="wrap wrap--narrow">
+          <div className="eyebrow eyebrow--moss">Colophon</div>
+          <h1>About this journal.</h1>
+          <p className="page-head__dek">
+            A small site, kept by one person, about one park.
+          </p>
+        </div>
+      </div>
+
+      <div className="wrap wrap--read" style={{ paddingTop: 56 }}>
+        <Placeholder
+          caption={"Cathedral Rocks from the Merced, El Portal"}
+          image="img/cathedral-rocks.jpg"
+          credit="Photo: Wikimedia Commons (public domain)"
+          tag="PORTRAIT"
+          size="lg"
+          style={{ aspectRatio: "4 / 5", marginBottom: 40 }}
+        />
+
+        <div className="prose">
+          <p className="dropcap">
+            Yosemite Sentinel began as a pile of paper. Trip notes, weather entries, copies of permits, lists of what was blooming on which week. The kind of paper that piles up when you live near a place long enough that you stop seeing the postcard and start seeing the year.
+          </p>
+
+          <p>
+            Eventually it seemed worth typing some of it up. Not all of it, and not in any particular hurry. The internet has plenty of writing about Yosemite. It does not need more. It might, I think, want some of a different shape.
+          </p>
+
+          <h2>Shape</h2>
+
+          <p>
+            Entries here come out when an entry is ready. There is no schedule. Some are short. Some are several thousand words. Some are trail reports. Some are weather. Some are arguments with myself about what the park does in February. The categories on the site are a rough sort, not a content plan.
+          </p>
+
+          <p>
+            I keep what is here as accurate as I can. I update entries when conditions change, and I leave a note when I do. If something is wrong, write to me. I would rather hear about it than not.
+          </p>
+
+          <h2>Reader</h2>
+
+          <p>
+            The reader I have in mind is someone planning a first trip and feeling slightly buried by the logistics. If you are a fortieth-time visitor looking for trail beta, you may still find something here, but most of the writing is pitched a little earlier than that.
+          </p>
+
+          <h2>Money</h2>
+
+          <p>
+            Some entries link to lodging or guidebooks through affiliate programs. If you book or buy through one, the site receives a small commission at no cost to you. Whether or not you use the link, the recommendation is the same. Every entry containing an affiliate link is marked. The full disclosure is <a href="#affiliate" onClick={(e) => { e.preventDefault(); go("affiliate"); }}>here</a>.
+          </p>
+
+          <p>
+            Nothing on the site is sponsored. No company has paid for placement, and none will.
+          </p>
+
+          <h2>Editor</h2>
+
+          <p>
+            Parker Woods. Lives in Yosemite National Park. Reachable at <a href="mailto:parker@yosemitesentinel.com">parker@yosemitesentinel.com</a> and through <a href="#contact" onClick={(e) => { e.preventDefault(); go("contact"); }}>the contact page</a>.
+          </p>
+
+          <hr />
+
+          <p style={{ fontFamily: "var(--sans)", fontSize: 13, color: "var(--ink-3)", textTransform: "uppercase", letterSpacing: "0.14em", fontWeight: 600 }}>
+            Set in EB Garamond and Inter. Hosted independently. Not affiliated with the National Park Service.
+          </p>
+        </div>
+
+        <div style={{ marginTop: 56 }}>
+          <NewsletterInline
+            heading="The Sunday Sentinel"
+            blurb="A short note on Sundays, when there is something to say."
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+window.AboutPage = AboutPage;
