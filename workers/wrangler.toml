@@ -3,21 +3,31 @@ main = "src/index.ts"
 compatibility_date = "2026-04-01"
 compatibility_flags = ["nodejs_compat"]
 
-# Replace `id` with the value printed by `wrangler kv:namespace create GUIDE_BUYERS`.
-# Use `wrangler kv:namespace create GUIDE_BUYERS --preview` for preview_id.
+# Replace `id` with the value printed by:
+#   wrangler kv namespace create GUIDE_BUYERS
+# Replace `preview_id` with the value from:
+#   wrangler kv namespace create GUIDE_BUYERS --preview
 [[kv_namespaces]]
 binding = "GUIDE_BUYERS"
 id = "REPLACE_ME_AFTER_kv_namespace_create"
 preview_id = "REPLACE_ME_FOR_LOCAL_DEV"
 
 [vars]
-APP_BASE_URL = "http://localhost:5173"
-EDITORIAL_BASE_URL = "http://localhost:8000"
+APP_BASE_URL = "https://guide.thetalusfieldjournal.com"
+EDITORIAL_BASE_URL = "https://thetalusfieldjournal.com"
 GUIDE_PRICE_CENTS = "2900"
 GUIDE_PRODUCT_TAG = "field_guide_2026"
 GUIDE_MONTHLY_CAP = "100"
 
-# Production routes (uncomment after DNS is set up).
-# [[routes]]
-# pattern = "api.thetalusfieldjournal.com/*"
-# zone_name = "thetalusfieldjournal.com"
+# Routes the Worker to api.thetalusfieldjournal.com.
+# DNS prerequisite: in Cloudflare DNS, add a CNAME `api` -> `<worker-name>.workers.dev`
+# (or use the AAAA shortcut Cloudflare offers when you assign a custom route).
+[[routes]]
+pattern = "api.thetalusfieldjournal.com/*"
+zone_name = "thetalusfieldjournal.com"
+
+# === Local dev override ====================================================
+# For local development, copy this file to wrangler.local.toml and replace
+# the URLs above with their localhost equivalents. wrangler picks it up via:
+#   wrangler dev --config wrangler.local.toml
+# ===========================================================================

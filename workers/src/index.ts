@@ -11,11 +11,14 @@ app.use(
   '/api/*',
   cors({
     origin: (origin, c) => {
-      // Allow editorial site, the PWA, and local dev.
+      // Allow editorial site (apex + www), the PWA, and local dev.
       const allowed = new Set([
         c.env.APP_BASE_URL,
         c.env.EDITORIAL_BASE_URL,
+        'https://thetalusfieldjournal.com',
+        'https://www.thetalusfieldjournal.com',
         'http://localhost:5173',
+        'http://localhost:5174',
         'http://localhost:8000',
       ])
       return allowed.has(origin) ? origin : c.env.APP_BASE_URL

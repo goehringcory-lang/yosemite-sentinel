@@ -3,10 +3,11 @@
 const GUIDE_PRICE = "$29";
 
 // API base for the Field Guide Worker. Override at runtime by setting
-// window.GUIDE_API_BASE before this script loads (handy for staging).
+// window.GUIDE_API_BASE before this script loads (e.g. local dev:
+// `window.GUIDE_API_BASE = "http://localhost:8787"` in a console snippet).
 const GUIDE_API_BASE =
   (typeof window !== "undefined" && window.GUIDE_API_BASE) ||
-  "http://localhost:8787";
+  "https://api.thetalusfieldjournal.com";
 
 // Scarcity defaults. Used as fallback if /api/inventory is unreachable.
 const GUIDE_FALLBACK_SOLD = 53;
@@ -75,9 +76,9 @@ function GuidePage({ go }) {
       <section className="page-head">
         <div className="wrap wrap--narrow">
           <div className="eyebrow eyebrow--moss">The Field Guide · Offline app · 2026 Edition</div>
-          <h1>Everything I know about visiting Yosemite. In your pocket, offline.</h1>
+          <h1>The Yosemite guide for people who already know about Glacier Point.</h1>
           <p className="page-head__dek">
-            A web app you add to your home screen. Three full itineraries (one day, three days, five days), tappable GPS for every parking spot and trailhead I trust, elevation profiles, swap plans for crowded days, and the rules of thumb you only learn after twenty seasons in the park. Works at the trailhead when service dies. No padding. No affiliate placements. Just the trip.
+            A web app you add to your home screen. Tappable GPS for the parking spots locals use, the trailheads that stay quiet, and the insider tactics for visiting the famous places without the crowd. Works offline at the trailhead when service dies. Not a PDF. Not another tourist checklist. The trip you actually came for.
           </p>
         </div>
       </section>
@@ -96,32 +97,61 @@ function GuidePage({ go }) {
               style={{ aspectRatio: "16 / 10", marginBottom: 32 }}
             />
 
-            <h2>Why a guidebook</h2>
+            <h2>What this is, and what it isn't</h2>
 
             <p>
-              Most of what's on The Talus Field will always be free. The articles, the kit lists, the trail notes. That's how I want this site to work. But the trip-planning side of what I do (the part where someone emails me with their dates, their kids' ages, their hiking comfort, their flight, and asks for a real plan) doesn't fit in an article. It's a book.
+              The internet has a thousand free articles telling you to drive to Glacier Point, walk through the Mariposa Grove, stop at Tunnel View, and look up at El Capitan from the Yosemite Valley floor. You already know those exist. You don't need another website telling you the same thing in a different font.
             </p>
 
             <p>
-              The Field Guide is that book. It's an app you add to your home screen. Works offline, so it's still there when you lose service in the Valley or up at Tuolumne. Tap any GPS coordinate to open it in Maps. See the day's stops on one screen, with photos that load from your device, not the network. It's the version of the conversation we'd have if you sat across from me at a picnic table in El Portal and said, "I have five days. Show me what to do."
+              This guide assumes you've done that reading. What it gives you is the other half of the trip: the parking spots and trailheads most visitors never find, and the insider tactics for visiting the famous places well — when to go, where to come from, and what most people get wrong. It's the version of the conversation we'd have if you sat across from me at a picnic table in El Portal and said, "I have five days. Show me what to do."
             </p>
 
-            <h2>What's inside</h2>
+            <h2>The parking nobody tells you about</h2>
 
-            <p>The guide is structured around three trip lengths. You read the one that matches your visit and skim the others for variations.</p>
+            <p>
+              Half the misery of a Yosemite day is the parking. The big lots fill by mid-morning and you spend the next hour circling. Most visitors never find out about the small turnouts a quarter mile down the road, the unmarked pull-offs at the back side of the meadow, the ranger-station lots that empty out at 10am, or the back-side approaches that put you on the trail two miles closer to where you actually want to be.
+            </p>
+
+            <p>
+              The guide has tappable GPS coordinates for every one of them. Tap the coordinate, your Maps app opens with the line drawn for you. Park where the locals park.
+            </p>
+
+            <h2>The trailheads where you find solitude</h2>
+
+            <p>
+              Yosemite has hundreds of miles of trail and ninety percent of visitors hike on five percent of it. The other ninety-five percent is where the park you came for actually lives. The guide has GPS coordinates to the trailheads most visitors skip — the ones that aren't on the top-ten lists, the ones with no signs from the road, the ones where you'll see more deer than people.
+            </p>
+
+            <p>
+              Each trailhead comes with an elevation profile so you know exactly what you're walking into: total gain, peak elevation, and the section where the trail actually gets hard.
+            </p>
+
+            <h2>How to visit the bucket-list spots without the crowd</h2>
+
+            <p>
+              Glacier Point. Mariposa Grove. Tunnel View. Yosemite Falls. The Half Dome view from the Valley floor. Yes, you should see them. They're on your list for a reason. But the difference between the version that becomes a memory and the version that becomes a parking-lot photo is timing, approach, and a few small choices most visitors don't know to make.
+            </p>
+
+            <p>
+              The guide gives you those choices. The hour to be there. The direction to come from. The viewpoint twenty yards off the marked spot that nobody else is standing at. The five-minute window where the light does what you came for.
+            </p>
+
+            <h2>The itineraries</h2>
+
+            <p>
+              All of this is organized into three trip lengths so the day-by-day plan matches the visit you're actually taking. You read the one that matches your dates and skim the others for variations.
+            </p>
 
             <ul>
               <li><strong>The One-Day Plan.</strong> A complete strategy for visitors arriving on a single day, with hour-by-hour timing, two backup variations for crowded conditions, and the three things never to skip.</li>
-              <li><strong>The Three-Day Plan.</strong> The most common Yosemite trip. A balanced itinerary across the Valley, Glacier Point, and the giant sequoias, with rest blocks, evening light recommendations, and a flex day that absorbs whatever the park throws at you.</li>
-              <li><strong>The Five-Day Plan.</strong> The trip that actually shows you what the park is. Includes a full Tuolumne day, a Hetch Hetchy day, the high-country sunset most visitors never see, and the unhurried mornings that turn a vacation into a memory.</li>
+              <li><strong>The Three-Day Plan.</strong> The most common Yosemite trip. A balanced itinerary with rest blocks, evening light recommendations, and a flex day that absorbs whatever the park throws at you.</li>
+              <li><strong>The Five-Day Plan.</strong> The trip that actually shows you what the park is. A full Tuolumne day, a Hetch Hetchy day, the high-country sunset most visitors never see, and the unhurried mornings that turn a vacation into a memory.</li>
             </ul>
 
-            <p>Inside each itinerary, you get:</p>
+            <p>Inside each itinerary, alongside the parking and trailhead coordinates, you also get:</p>
 
             <ul>
-              <li><strong>Tappable GPS for every recommended parking spot,</strong> including the small turnouts most visitors never find. Tap the coordinate, your Maps app opens with the line drawn for you. Park where the locals park.</li>
-              <li><strong>GPS coordinates for every trailhead</strong> in the guide, plus the key viewpoints you can reach without hiking.</li>
-              <li><strong>Elevation profiles</strong> for every recommended hike. Total gain, peak elevation, and the section where the trail actually gets hard.</li>
               <li><strong>Trip-planning maps</strong> with the day's route, the alternates, and the swap points if the original plan dies.</li>
               <li><strong>Time budgets</strong> for every stop, drive, and meal. The kind of timing that prevents the late-afternoon scramble.</li>
               <li><strong>A seasonal packing checklist.</strong> Check items off in-app or print it for the dresser.</li>
@@ -133,7 +163,7 @@ function GuidePage({ go }) {
             <p>I think you should know what you're not getting before you buy something.</p>
 
             <ul>
-              <li>This is not an encyclopedia. It will not list every trail in the park or every place to eat. It's a curated trip plan, not a reference.</li>
+              <li>This is not the standard tourist guide. If you want a list of the ten most famous viewpoints with the basic directions to each, every other Yosemite site already gives you that for free. This guide is what comes after that.</li>
               <li>It is not a children's activity book or a photography manual. Both could be their own books.</li>
               <li>It does not include rock-climbing routes or technical canyoneering. There are excellent specialist guides for both.</li>
               <li>It does not have affiliate placements baked into the recommendations. The lodging suggestions are places I've stayed and would send my mother to. They're picked, not paid for.</li>
@@ -142,7 +172,7 @@ function GuidePage({ go }) {
             <h2>Who it's for</h2>
 
             <p>
-              First-time visitors who want a real plan, not a list. Returning visitors who realize the trip they've been doing for years has been the wrong version, and want to fix it. Families coordinating a multi-generational trip and trying to keep everyone happy. Anyone who'd rather spend an evening reading the guide than three weekends researching it.
+              First-time visitors who want a real plan, not a list. Second-time visitors who came home from their first trip feeling like they'd missed the actual park and want to fix it. Returning visitors who realize the trip they've been doing for years has been the wrong version. Families coordinating a multi-generational trip and trying to keep everyone happy. Anyone who'd rather spend an evening reading the guide than three weekends researching it.
             </p>
 
             <p>
@@ -152,7 +182,7 @@ function GuidePage({ go }) {
             <h2 id="why-cap">Why I cap this at 100 a month</h2>
 
             <p>
-              The Field Guide includes parking spots, trailheads, and viewpoints I trust because most visitors haven't found them yet. If a thousand people a month show up at the small turnout that gets you to the quiet beach, it stops being the quiet beach. The recommendations stop being good. The guide stops being worth its price.
+              The whole guide rests on places that work because most visitors haven't found them yet. The small turnout. The quiet trailhead. The viewpoint nobody is standing at. Share any one of them with ten thousand people and it stops being the place I'm sending you to. The recommendation stops being good. The guide stops being worth its price.
             </p>
 
             <p>
@@ -170,7 +200,7 @@ function GuidePage({ go }) {
             <h2>Format and delivery</h2>
 
             <ul>
-              <li><strong>A web app you add to your home screen.</strong> Looks and feels like a native app. No App Store, no install wait, no version to keep updated.</li>
+              <li><strong>A web app you add to your home screen.</strong> Looks and feels like a native app. It is not a PDF and not a printed book. No App Store, no install wait, no version to keep updated.</li>
               <li><strong>Works offline.</strong> The whole guide, every photo, and offline map tiles for Yosemite cache to your device on first open. Lose service in the Valley or up at Tuolumne, the guide is still there.</li>
               <li><strong>Tappable GPS coordinates</strong> that open Apple Maps or Google Maps directly. No copying, no typing.</li>
               <li><strong>Embedded maps for every day,</strong> with all stops on one screen.</li>
@@ -242,17 +272,17 @@ function GuidePage({ go }) {
             )}
 
             <p style={{ fontFamily: "var(--serif)", fontSize: 14, color: "var(--ink-2)", lineHeight: 1.55, margin: 0 }}>
-              An offline app. Three itineraries. Tappable GPS for parking, trailheads, and viewpoints. Embedded maps. Updates push automatically through the 2026 season. Refund if it doesn't earn its keep.
+              An offline app. Tappable GPS for hidden parking, the trailheads that stay quiet, and tactics for the famous spots. Three itineraries (one, three, five days). Updates push automatically through the 2026 season. Refund if it doesn't earn its keep.
             </p>
 
             <div style={{ borderTop: "1px solid var(--rule)", marginTop: 24, paddingTop: 20 }}>
               <div className="eyebrow" style={{ marginBottom: 10 }}>In the app</div>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, fontFamily: "var(--sans)", fontSize: 13, color: "var(--ink-2)", lineHeight: 1.7 }}>
-                <li>· One-day, three-day, five-day plans</li>
-                <li>· Works offline anywhere in the park</li>
-                <li>· Tappable GPS for every stop</li>
+                <li>· Tappable GPS for hidden parking and trailheads</li>
                 <li>· Elevation profiles per hike</li>
                 <li>· Embedded day-maps</li>
+                <li>· One-day, three-day, five-day plans</li>
+                <li>· Works offline anywhere in the park</li>
                 <li>· Hour-by-hour time budgets</li>
                 <li>· Contingency tree for closures</li>
                 <li>· Seasonal packing list</li>
