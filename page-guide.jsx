@@ -18,16 +18,19 @@ function GuidePage({ go }) {
   const [sold, setSold] = React.useState(GUIDE_FALLBACK_SOLD);
   const [buying, setBuying] = React.useState(false);
   const [buyError, setBuyError] = React.useState(null);
+  // apiReady flips true only when /api/inventory responds. When false, the buy
+  // button stays in passive "preview" mode so local dev (no Worker) doesn't
+  // surface a real-looking error to visitors.
+  const [apiReady, setApiReady] = React.useState(false);
 
-  // Pull live inventory on mount; fall back silently if the API is offline.
   React.useEffect(() => {
     let cancelled = false;
     fetch(`${GUIDE_API_BASE}/api/inventory`)
       .then((r) => (r.ok ? r.json() : null))
       .then((data) => {
-        if (!cancelled && data && typeof data.sold === "number") {
-          setSold(data.sold);
-        }
+        if (cancelled) return;
+        if (data && typeof data.sold === "number") setSold(data.sold);
+        setApiReady(true);
       })
       .catch(() => {});
     return () => { cancelled = true; };
@@ -35,6 +38,10 @@ function GuidePage({ go }) {
 
   async function startCheckout() {
     if (buying) return;
+    if (!apiReady) {
+      setBuyError("Checkout opens at launch.");
+      return;
+    }
     setBuying(true);
     setBuyError(null);
     try {
