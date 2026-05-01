@@ -108,6 +108,10 @@ function GuidePage({ go }) {
               If you arrive and the month is sold out, come back on the first. The fairer system is to make people wait a few weeks. The alternative is to ruin the locations.
             </p>
 
+            <p>
+              <a href="#cap" onClick={(e) => { e.preventDefault(); go("cap"); }}>Read the full policy on the cap →</a>
+            </p>
+
             <h2>Format and delivery</h2>
 
             <ul>
@@ -151,8 +155,8 @@ function GuidePage({ go }) {
               </div>
               <div style={{ fontFamily: "var(--sans)", fontSize: 12, color: "var(--ink-3)", lineHeight: 1.55 }}>
                 {isSoldOut
-                  ? <>Reservations open {GUIDE_NEXT_OPEN}. <a href="#why-cap" style={{ color: "var(--ink-2)" }}>Why a cap?</a></>
-                  : <>Resets {GUIDE_NEXT_OPEN}. <a href="#why-cap" style={{ color: "var(--ink-2)" }}>Why a cap?</a></>}
+                  ? <>Reservations open {GUIDE_NEXT_OPEN}. <a href="#cap" onClick={(e) => { e.preventDefault(); go("cap"); }} style={{ color: "var(--ink-2)" }}>Why a cap?</a></>
+                  : <>Resets {GUIDE_NEXT_OPEN}. <a href="#cap" onClick={(e) => { e.preventDefault(); go("cap"); }} style={{ color: "var(--ink-2)" }}>Why a cap?</a></>}
               </div>
             </div>
 
