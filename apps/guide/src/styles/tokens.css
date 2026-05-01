@@ -1,0 +1,455 @@
+/* ============================================================
+   The Field Guide. Brand tokens ported from Website/styles.css
+   Stays in sync visually with the editorial site at thetalusfieldjournal.com.
+   ============================================================ */
+
+:root {
+  /* Golden hour. Warm cream paper, oxidized iron red */
+  --paper: #f1ead6;
+  --paper-2: #e6dcc1;
+  --paper-3: #d8c89e;
+  --ink: #14110c;
+  --ink-2: #36291c;
+  --ink-3: #6e5c43;
+  --rule: #2a2118;
+  --rule-soft: #c1ad84;
+  --moss: #7a2a10;
+  --moss-2: #9a3a1c;
+  --rust: #7a2a10;
+  --gold: #8a661a;
+
+  --serif: 'EB Garamond', 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --display: 'EB Garamond', 'Source Serif 4', Georgia, serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --measure: 66ch;
+  --gutter: clamp(20px, 4vw, 48px);
+}
+
+[data-palette="granite"] {
+  --paper: #efece3;
+  --paper-2: #e1ddcd;
+  --paper-3: #cfc9b3;
+  --ink: #14140f;
+  --ink-2: #2f2f29;
+  --ink-3: #5e5e54;
+  --rule: #1c1c17;
+  --rule-soft: #b9b39d;
+  --moss: #243a26;
+  --moss-2: #3d573f;
+  --rust: #7a3a1c;
+  --gold: #8a7020;
+}
+
+[data-palette="sierra"] {
+  --paper: #ebede9;
+  --paper-2: #d8ddd9;
+  --paper-3: #bfc6c0;
+  --ink: #0c1014;
+  --ink-2: #232a32;
+  --ink-3: #50596a;
+  --rule: #11161c;
+  --rule-soft: #a8b0b3;
+  --moss: #1a2c40;
+  --moss-2: #2c456b;
+  --rust: #5e3e25;
+  --gold: #75601f;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+html {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
+}
+
+body {
+  background: var(--paper);
+  background-image: radial-gradient(color-mix(in oklab, var(--ink) 5%, transparent) 1px, transparent 1px);
+  background-size: 4px 4px;
+  background-position: 0 0;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--rule-soft);
+}
+a:hover { text-decoration-color: var(--moss); color: var(--moss); }
+
+::selection { background: var(--ink); color: var(--paper); }
+
+h1, h2, h3, h4 {
+  font-family: var(--display);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.08;
+  margin: 0;
+  text-wrap: balance;
+  font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
+}
+h1 {
+  font-size: clamp(40px, 6vw, 84px);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.02;
+}
+h2 { font-size: clamp(28px, 3vw, 38px); font-weight: 500; line-height: 1.1; }
+h3 { font-size: clamp(20px, 2vw, 24px); font-weight: 600; line-height: 1.25; }
+
+p { margin: 0 0 1.1em; text-wrap: pretty; }
+
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--ink-2);
+}
+.eyebrow--moss { color: var(--moss); }
+
+.dateline {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink-3);
+}
+
+.mono {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+.wrap--narrow { max-width: 780px; }
+.wrap--read { max-width: 660px; }
+
+/* App-specific shell */
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  padding: 14px 22px;
+  background: var(--ink);
+  color: var(--paper);
+  border: 1px solid var(--ink);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+.btn:hover { background: var(--moss); border-color: var(--moss); color: var(--paper); }
+.btn[disabled] { opacity: 0.45; cursor: not-allowed; }
+
+.btn--ghost {
+  background: transparent;
+  color: var(--ink);
+}
+.btn--ghost:hover { background: var(--ink); color: var(--paper); }
+
+.input {
+  font-family: var(--sans);
+  font-size: 16px;
+  padding: 12px 14px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  width: 100%;
+}
+.input:focus { outline: 2px solid var(--moss); outline-offset: -1px; }
+
+.card {
+  border: 1px solid var(--rule);
+  background: var(--paper-2);
+  padding: 28px;
+}
+
+/* ===== Phase 3 components ===== */
+
+/* GPS chip — tappable coordinate that opens native Maps */
+.gps-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  text-decoration: none;
+  background: var(--paper);
+}
+.gps-chip:hover {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+/* Inline metadata chip (elevation, time budget) */
+.meta-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border: 1px solid var(--rule-soft);
+  color: var(--ink-2);
+  background: transparent;
+}
+
+.meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0 22px;
+}
+
+/* Swap callout — "if full, do this instead" */
+.swap-callout {
+  border-left: 3px solid var(--moss);
+  padding: 10px 0 10px 16px;
+  margin: 22px 0 0;
+  font-family: var(--serif);
+  font-size: 15px;
+  font-style: italic;
+  color: var(--ink-2);
+  line-height: 1.5;
+}
+.swap-callout__label {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-style: normal;
+  color: var(--moss);
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Markdown body */
+.prose {
+  max-width: var(--measure);
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.prose p { margin: 0 0 1em; }
+.prose p:last-child { margin-bottom: 0; }
+.prose ul, .prose ol { margin: 0 0 1em; padding-left: 1.4em; }
+.prose li { margin: 0 0 0.4em; }
+.prose a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rule-soft);
+  text-underline-offset: 3px;
+}
+.prose a:hover { color: var(--moss); text-decoration-color: var(--moss); }
+.prose strong { font-weight: 600; }
+.prose em { font-style: italic; }
+
+/* Day bar — sticky day-of-trip indicator with progress dots */
+.daybar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+  padding: 14px 0;
+}
+.daybar__inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.daybar__label {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+.daybar__dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.daybar__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--ink);
+  background: transparent;
+  display: inline-block;
+}
+.daybar__dot--active { background: var(--ink); }
+.daybar__dot:hover { background: var(--moss); border-color: var(--moss); }
+
+/* Trip picker card — used on the hub */
+.trip-picker-card {
+  display: block;
+  border: 1px solid var(--rule);
+  background: var(--paper-2);
+  padding: 32px;
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.trip-picker-card:hover {
+  background: var(--paper-3);
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: var(--ink);
+}
+.trip-picker-card__title {
+  font-family: var(--display);
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 500;
+  line-height: 1.05;
+  margin: 8px 0 12px;
+}
+.trip-picker-card__teaser {
+  font-family: var(--serif);
+  font-size: 15px;
+  color: var(--ink-2);
+  margin: 0 0 18px;
+  line-height: 1.5;
+}
+
+/* Stop card and the rule between cards in the day view */
+.stop-card { padding: 0 0 8px; }
+.stop-card__photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 0 18px;
+  background: var(--paper-3);
+}
+.stop-card__caption {
+  font-family: var(--sans);
+  font-size: 11px;
+  color: var(--ink-3);
+  margin: -10px 0 18px;
+  font-style: italic;
+}
+.stop-card__title {
+  font-family: var(--display);
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 500;
+  line-height: 1.1;
+  margin: 8px 0 0;
+}
+.stop-card__more {
+  display: inline-block;
+  margin-top: 22px;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  text-decoration: none;
+}
+.stop-card__more:hover { color: var(--moss); }
+
+.stop-divider {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 56px 0;
+}
+
+/* Trip overview — list of days */
+.day-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--rule-soft);
+  text-decoration: none;
+  color: var(--ink);
+}
+.day-row:hover { color: var(--moss); }
+.day-row__label {
+  font-family: var(--display);
+  font-size: 24px;
+  font-weight: 500;
+}
+.day-row__count {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* Gated chrome — small top-right account link on every gated route */
+.gated-chrome {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: flex-end;
+  padding: 14px var(--gutter);
+  background: color-mix(in oklab, var(--paper) 92%, transparent);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--rule-soft);
+}
+.gated-chrome__link {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  text-decoration: none;
+}
+.gated-chrome__link:hover { color: var(--moss); }
+
+/* Updated stamp on the hub footer */
+.updated-stamp {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-top: 56px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule-soft);
+}

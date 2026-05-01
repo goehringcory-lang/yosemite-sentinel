@@ -1,0 +1,23 @@
+name = "talus-field-guide-api"
+main = "src/index.ts"
+compatibility_date = "2026-04-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Replace `id` with the value printed by `wrangler kv:namespace create GUIDE_BUYERS`.
+# Use `wrangler kv:namespace create GUIDE_BUYERS --preview` for preview_id.
+[[kv_namespaces]]
+binding = "GUIDE_BUYERS"
+id = "REPLACE_ME_AFTER_kv_namespace_create"
+preview_id = "REPLACE_ME_FOR_LOCAL_DEV"
+
+[vars]
+APP_BASE_URL = "http://localhost:5173"
+EDITORIAL_BASE_URL = "http://localhost:8000"
+GUIDE_PRICE_CENTS = "2900"
+GUIDE_PRODUCT_TAG = "field_guide_2026"
+GUIDE_MONTHLY_CAP = "100"
+
+# Production routes (uncomment after DNS is set up).
+# [[routes]]
+# pattern = "api.thetalusfieldjournal.com/*"
+# zone_name = "thetalusfieldjournal.com"

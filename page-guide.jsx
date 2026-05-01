@@ -1,18 +1,66 @@
 /* global React, Placeholder, MotifMountains, NewsletterInline */
 
 const GUIDE_PRICE = "$29";
-const GUIDE_BUY_URL = "#";
 
-// Scarcity controls. Flip GUIDE_SOLD_THIS_MONTH to 100 to preview the sold-out state.
-const GUIDE_SOLD_THIS_MONTH = 53;
+// API base for the Field Guide Worker. Override at runtime by setting
+// window.GUIDE_API_BASE before this script loads (handy for staging).
+const GUIDE_API_BASE =
+  (typeof window !== "undefined" && window.GUIDE_API_BASE) ||
+  "http://localhost:8787";
+
+// Scarcity defaults. Used as fallback if /api/inventory is unreachable.
+const GUIDE_FALLBACK_SOLD = 53;
 const GUIDE_MONTHLY_CAP = 100;
-const GUIDE_MONTH_LABEL = "April 2026";
-const GUIDE_NEXT_OPEN = "May 1";
+const GUIDE_MONTH_LABEL = "May 2026";
+const GUIDE_NEXT_OPEN = "June 1";
 
 function GuidePage({ go }) {
-  const remaining = Math.max(0, GUIDE_MONTHLY_CAP - GUIDE_SOLD_THIS_MONTH);
+  const [sold, setSold] = React.useState(GUIDE_FALLBACK_SOLD);
+  const [buying, setBuying] = React.useState(false);
+  const [buyError, setBuyError] = React.useState(null);
+
+  // Pull live inventory on mount; fall back silently if the API is offline.
+  React.useEffect(() => {
+    let cancelled = false;
+    fetch(`${GUIDE_API_BASE}/api/inventory`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => {
+        if (!cancelled && data && typeof data.sold === "number") {
+          setSold(data.sold);
+        }
+      })
+      .catch(() => {});
+    return () => { cancelled = true; };
+  }, []);
+
+  async function startCheckout() {
+    if (buying) return;
+    setBuying(true);
+    setBuyError(null);
+    try {
+      const res = await fetch(`${GUIDE_API_BASE}/api/checkout/start`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+      });
+      if (res.status === 409) {
+        const body = await res.json();
+        setSold(body.cap || GUIDE_MONTHLY_CAP);
+        return;
+      }
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const { url } = await res.json();
+      window.location = url;
+    } catch (err) {
+      setBuyError("Couldn't start checkout. Try again or email Cory.");
+      console.error(err);
+    } finally {
+      setBuying(false);
+    }
+  }
+
+  const remaining = Math.max(0, GUIDE_MONTHLY_CAP - sold);
   const isSoldOut = remaining <= 0;
-  const soldPct = Math.min(100, (GUIDE_SOLD_THIS_MONTH / GUIDE_MONTHLY_CAP) * 100);
+  const soldPct = Math.min(100, (sold / GUIDE_MONTHLY_CAP) * 100);
 
   return (
     <div className="page">
@@ -170,9 +218,20 @@ function GuidePage({ go }) {
                 Sold out. Back {GUIDE_NEXT_OPEN}
               </button>
             ) : (
-              <a className="btn" href={GUIDE_BUY_URL} style={{ display: "block", textAlign: "center", marginBottom: 14 }}>
-                Reserve a copy →
-              </a>
+              <button
+                className="btn"
+                type="button"
+                onClick={startCheckout}
+                disabled={buying}
+                style={{ display: "block", width: "100%", textAlign: "center", marginBottom: 14, border: 0, font: "inherit", cursor: buying ? "wait" : "pointer" }}
+              >
+                {buying ? "Opening checkout…" : "Reserve a copy →"}
+              </button>
+            )}
+            {buyError && (
+              <p style={{ color: "var(--moss)", fontFamily: "var(--sans)", fontSize: 13, margin: "0 0 14px" }}>
+                {buyError}
+              </p>
             )}
 
             <p style={{ fontFamily: "var(--serif)", fontSize: 14, color: "var(--ink-2)", lineHeight: 1.55, margin: 0 }}>
