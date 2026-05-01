@@ -322,6 +322,17 @@ p { margin: 0 0 1.1em; text-wrap: pretty; }
 }
 .nav__menu a:hover { background: var(--paper-2); color: var(--ink); }
 .nav__menu a.is-active { color: var(--ink); }
+/* Articles/Kit are mirrored into the dropdown for mobile fallback. Hide at desktop. */
+.nav__menu a.is-mobile-only { display: none; }
+@media (max-width: 420px) {
+  .nav__menu a.is-mobile-only { display: block; }
+  /* visual divider after the mobile-only group */
+  .nav__menu a.is-mobile-only + a:not(.is-mobile-only) {
+    border-top: 1px solid var(--rule-soft);
+    margin-top: 6px;
+    padding-top: 14px;
+  }
+}
 .nav__menu a.is-active::before {
   content: "";
   display: inline-block;
@@ -1231,10 +1242,161 @@ p { margin: 0 0 1.1em; text-wrap: pretty; }
 @media (max-width: 880px) {
   .hero__grid { grid-template-columns: 1fr; gap: 32px; }
   .site-footer__grid { grid-template-columns: 1fr 1fr; }
-  .nav { gap: 12px; font-size: 10px; }
-  .nav a:not(.nav__cta) { display: none; }
+  .nav { gap: 14px; font-size: 11px; }
   .statblock { grid-template-columns: 1fr 1fr; }
   .masthead__top { font-size: 9px; }
+}
+
+/* ===== Mobile (≤720px) ===== */
+@media (max-width: 720px) {
+  /* Prevent any rogue element from causing horizontal scroll. */
+  html, body { overflow-x: hidden; }
+
+  /* Tighter base type and gutters on phones. */
+  html { font-size: 17px; }
+  :root { --gutter: 18px; }
+  [data-density="dense"] { --gutter: 16px; }
+
+  h1 { font-size: clamp(34px, 8.5vw, 48px); }
+  .hero__dek, .page-head__dek { font-size: 18px; }
+
+  /* Inline grids on home, articles, article, guide, newsletter pages.
+     React renders style props as kebab-case in the DOM, so we can target them. */
+  [style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  /* The 4-up sections grid on the home page is more useful as a 2x2 than stacked. */
+  [style*="repeat(4"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0 !important;
+  }
+
+  /* Section padding overrides for inline-styled paddingTop. Halve generous spacing. */
+  section.wrap[style*="padding-top: 96"],
+  section.wrap[style*="padding-top: 80"] { padding-top: 48px !important; }
+  section.wrap[style*="padding-top: 64"],
+  section.wrap[style*="padding-top: 56"] { padding-top: 40px !important; }
+
+  /* Masthead. Show all key destinations at mobile, just smaller. */
+  .masthead__main { padding: 12px var(--gutter); gap: 12px; }
+  .brand { font-size: 22px; }
+  .brand__sub { display: none; }
+  .nav { gap: 14px; font-size: 11px; margin-left: auto; flex-wrap: nowrap; }
+  .nav a, .nav__more-trigger { letter-spacing: 0.08em; }
+  .nav a:not(.nav__primary):not(.nav__cta) { padding: 4px 0; }
+  /* Hide the secondary text links on the narrowest phones. The dropdown still has Articles/Kit-adjacent items. */
+  .nav__primary { padding: 7px 12px; font-size: 10px; letter-spacing: 0.08em; }
+
+  .nav__menu { right: -8px; min-width: 200px; }
+  .nav__menu a { padding: 14px 18px; font-size: 14px; }
+
+  .masthead__top { padding: 6px var(--gutter); }
+
+  /* Hero. Less padding, no big gap. */
+  .hero { padding: 32px 0 32px; }
+  .hero__kicker { font-size: 9px; gap: 10px; padding-bottom: 12px; margin-bottom: 16px; }
+  .hero__cta { gap: 10px; }
+  .hero__cta .btn { padding: 12px 18px; font-size: 11px; }
+
+  /* Section heads */
+  .section-head { margin-bottom: 20px; padding-bottom: 8px; flex-wrap: wrap; gap: 8px; }
+  .section-head h2 { font-size: 11px !important; }
+
+  /* Featured "This Week" headline shrinks. */
+  .card__title { font-size: 22px; }
+
+  /* Page head. */
+  .page-head { padding: 36px 0 28px; }
+  .page-head h1 { margin-bottom: 14px; }
+  .page-head__dek { font-size: 17px; }
+
+  /* Newsletter inline. */
+  .nlbox { padding: 24px 18px; margin: 32px 0; }
+  .nlbox h3 { font-size: 22px; }
+  .nlbox p { font-size: 15px; }
+  .nlbox__form { flex-wrap: wrap; gap: 4px; }
+  .nlbox__form input { width: 100%; font-size: 16px; padding: 10px 0; }
+  .nlbox__form button { width: 100%; text-align: left; padding: 10px 0; }
+
+  /* Forms. Bump font to 16px to stop iOS zoom on focus. */
+  .field input, .field textarea, .field select { font-size: 16px; }
+
+  /* Buttons. Comfortable tap targets. */
+  .btn { padding: 12px 18px; font-size: 11px; min-height: 44px; }
+
+  /* Footer. One column at phone size. */
+  .site-footer { margin-top: 56px; padding: 40px 0 24px; }
+  .site-footer__grid { grid-template-columns: 1fr; gap: 28px; padding-top: 24px; }
+  .site-footer__masthead { font-size: 26px; }
+  .site-footer__legal { flex-direction: column; align-items: flex-start; }
+
+  /* Prose. Tighten dropcap so it doesn't crowd the first line on a small column. */
+  .prose { font-size: 17px; line-height: 1.6; }
+  .prose .dropcap::first-letter { font-size: 4em; margin-right: 0.06em; }
+  .prose blockquote { font-size: 21px; margin: 1.2em 0; padding: 0.8em 0; }
+  .prose h3 { font-size: 19px; }
+
+  /* Article header byline row stacks. */
+  .wrap--narrow > div[style*="display: flex"][style*="align-items: center"] {
+    flex-wrap: wrap;
+  }
+  /* Inline forms (newsletter page, etc.) wrap their button onto a new line. */
+  .wrap--narrow > form[style*="display: flex"] {
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+  }
+  .wrap--narrow > form[style*="display: flex"] > input {
+    flex-basis: 100% !important;
+    font-size: 18px !important;
+  }
+  .wrap--narrow > form[style*="display: flex"] > .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Sticky Field Guide bar */
+  .guide-bar__inner { padding: 10px var(--gutter) !important; }
+  .guide-bar__cta { padding: 10px 14px; font-size: 11px; }
+
+  /* End-of-article guide CTA */
+  .guide-cta { padding: 24px 22px; margin-top: 40px; }
+  .guide-cta__title { font-size: 24px; }
+  .guide-cta__body { font-size: 16px; }
+
+  /* Stat block */
+  .statblock { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .statblock__item .val { font-size: 16px; }
+
+  /* Places strip */
+  .places-strip { padding: 16px var(--gutter); gap: 12px; }
+  .places-strip__copy { font-size: 15px; }
+
+  /* Tiles inside the home "By Section" 2x2 grid keep their internal padding readable. */
+  [style*="repeat(4"] > a { padding: 18px !important; }
+  [style*="repeat(4"] > a > div[style*="font-size: 26px"] { font-size: 20px !important; }
+
+  /* Placeholder credit + caption shrink */
+  .placeholder__credit { font-size: 8px; padding: 3px 6px; bottom: 44px; }
+  .placeholder__caption { font-size: 12px; padding: 8px 12px; }
+  .placeholder__caption.placeholder__caption,
+  .placeholder--lg .placeholder__caption { font-size: 13px; padding: 10px 14px; }
+  .placeholder::after { font-size: 9px; padding: 4px 7px; top: 10px; right: 10px; }
+
+  /* Chips wrap nicely */
+  .chip { padding: 8px 12px; font-size: 11px; }
+
+  /* Tap target floor for nav links */
+  .nav a, .nav__more-trigger { min-height: 32px; display: inline-flex; align-items: center; }
+}
+
+@media (max-width: 420px) {
+  /* Smallest phones. Drop the "Articles" + "Kit" text links so the masthead doesn't wrap. */
+  .nav > a:not(.nav__primary) { display: none; }
+  .nav { gap: 10px; }
+  .nav__primary { padding: 6px 10px; font-size: 10px; }
+  .brand { font-size: 20px; }
+  .masthead__main { gap: 8px; }
 }
 
 /* ===== Page transitions ===== */

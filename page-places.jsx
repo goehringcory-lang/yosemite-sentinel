@@ -1,4 +1,4 @@
-/* global React, NewsletterInline */
+/* global React, Placeholder, MotifMountains, NewsletterInline */
 
 function PlacesPage({ go }) {
   const recs = window.KIT.recommendations;
@@ -14,6 +14,19 @@ function PlacesPage({ go }) {
             A small, curated directory of lodging, outfitters, and guiding services in and around Yosemite. Drawn from twenty seasons of working in and around the park. The standard for inclusion is the same one I'd use sending a friend.
           </p>
         </div>
+      </section>
+
+      {/* Park map */}
+      <section className="wrap wrap--narrow" style={{ paddingTop: 48 }}>
+        <Placeholder
+          caption="Yosemite National Park"
+          image="img/yosemite-park-map.jpg"
+          tag="MAP"
+          size="lg"
+          style={{ aspectRatio: "686 / 849" }}
+          motif={<MotifMountains />}
+          credit="Map: National Park Service (public domain)"
+        />
       </section>
 
       {/* Lodging */}

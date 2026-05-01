@@ -69,7 +69,11 @@ function Header({ current, go }) {
     ["kit", "Kit"],
   ];
   // Secondary items, lower-frequency utility. Tucked behind a dropdown.
+  // Articles + Kit are duplicated here (and CSS-hidden at desktop) so the dropdown
+  // is a complete fallback nav at narrow widths, where the primary text links collapse.
   const moreNav = [
+    ["articles", "Articles", "is-mobile-only"],
+    ["kit", "Kit", "is-mobile-only"],
     ["places", "Places & People"],
     ["about", "About"],
     ["newsletter", "Newsletter"],
@@ -143,12 +147,12 @@ function Header({ current, go }) {
             </button>
             {moreOpen && (
               <div className="nav__menu" role="menu">
-                {moreNav.map(([key, label]) => (
+                {moreNav.map(([key, label, extra]) => (
                   <a
                     key={key}
                     role="menuitem"
                     href={`#${key}`}
-                    className={current === key ? "is-active" : ""}
+                    className={`${current === key ? "is-active" : ""} ${extra || ""}`.trim()}
                     onClick={(e) => { e.preventDefault(); setMoreOpen(false); go(key); }}
                   >{label}</a>
                 ))}
