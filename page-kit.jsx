@@ -53,6 +53,7 @@ function KitPage({ go }) {
             <div style={{ marginTop: 32 }}>
               <Placeholder
                 caption={list.imageCaption}
+                credit={list.imageCredit}
                 image={list.image}
                 tag={`PLATE ${list.icon}`}
                 size="lg"

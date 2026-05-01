@@ -25,8 +25,9 @@ window.KIT = {
       title: "Day pack",
       summary: "For a single day on the trail in the Valley or the high country. Spring through fall.",
       icon: "I",
-      image: "img/Day%20pack.png",
+      image: "img/day-pack-flat-lay.jpg",
       imageCaption: "Day pack, loaded for a Valley-to-rim hike",
+      imageCredit: "Photo: Muhammad Masood / Unsplash",
       items: [
         { name: "20–25L pack with a hip belt", note: "Hip belt matters more than the brand. Look for one that sits on your iliac crest, not your waist.", aff: "#" },
         { name: "2L water reservoir + 1L bottle", note: "Reservoir for steady sipping, bottle for filtering refills. Both, not either.", aff: "#" },
