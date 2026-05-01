@@ -32,16 +32,14 @@ function GuidePage({ go }) {
 
           {/* Left column. Body */}
           <div className="prose">
-            <figure style={{ margin: "0 0 32px" }}>
-              <img
-                src="img/talus-flows-yosemite.jpg"
-                alt="Talus deposits along the valley walls of Yosemite Valley: broken rock fragments accumulated below the cliffs."
-                style={{ width: "100%", display: "block", aspectRatio: "16 / 10", objectFit: "cover" }}
-              />
-              <figcaption style={{ fontFamily: "var(--sans)", fontSize: 12, textTransform: "uppercase", letterSpacing: "0.14em", color: "var(--ink-3)", fontWeight: 600, marginTop: 10 }}>
-                Plate I · Talus along the valley walls · USGS / Alex Demas
-              </figcaption>
-            </figure>
+            <Placeholder
+              image="img/talus-flows-yosemite.jpg"
+              caption="Talus along the valley walls."
+              credit="USGS / Alex Demas"
+              tag="PLATE I"
+              size="lg"
+              style={{ aspectRatio: "16 / 10", marginBottom: 32 }}
+            />
 
             <h2>Why a guidebook</h2>
 

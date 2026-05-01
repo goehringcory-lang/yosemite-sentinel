@@ -195,16 +195,9 @@ function Footer({ go }) {
             <ul>
               <li><a href="#about" onClick={(e) => { e.preventDefault(); go("about"); }}>About</a></li>
               <li><a href="#articles" onClick={(e) => { e.preventDefault(); go("articles"); }}>All articles</a></li>
+              <li><a href="#places" onClick={(e) => { e.preventDefault(); go("places"); }}>Places &amp; People</a></li>
               <li><a href="#newsletter" onClick={(e) => { e.preventDefault(); go("newsletter"); }}>Newsletter</a></li>
               <li><a href="#contact" onClick={(e) => { e.preventDefault(); go("contact"); }}>Contact</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4>For operators</h4>
-            <ul>
-              <li><a href="#advertise" onClick={(e) => { e.preventDefault(); go("advertise"); }}>Advertise with us</a></li>
-              <li><a href="#places" onClick={(e) => { e.preventDefault(); go("places"); }}>Places &amp; People directory</a></li>
-              <li><a href="#contact" onClick={(e) => { e.preventDefault(); go("contact"); }}>Contact the editor</a></li>
             </ul>
           </div>
           <div>

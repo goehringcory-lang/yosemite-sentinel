@@ -11,7 +11,7 @@ function PlacesPage({ go }) {
           <div className="eyebrow eyebrow--moss">Places & People</div>
           <h1>Where to stay and who to hire.</h1>
           <p className="page-head__dek">
-            A curated directory of lodging, outfitters, and guiding services in and around Yosemite. Some listings are personal recommendations from twenty seasons in the park. Others are sponsored placements from operators I've vetted. Both are clearly labeled.
+            A small, curated directory of lodging, outfitters, and guiding services in and around Yosemite. Drawn from twenty seasons of working in and around the park. The standard for inclusion is the same one I'd use sending a friend.
           </p>
         </div>
       </section>
@@ -60,23 +60,15 @@ function PlacesPage({ go }) {
         </div>
       </section>
 
-      {/* Quiet pointer to the operator advertise page */}
-      <section className="wrap" style={{ paddingTop: 80 }}>
-        <div className="places-strip">
-          <div className="places-strip__copy">
-            <span className="places-strip__eyebrow">For operators ·</span>
-            <span>Run a Yosemite-adjacent business? Get listed in the directory.</span>
-          </div>
-          <a
-            className="places-strip__cta"
-            href="#advertise"
-            onClick={(e) => { e.preventDefault(); go("advertise"); }}
-          >Advertise with us →</a>
-        </div>
+      {/* Quiet sponsorship disclosure */}
+      <section className="wrap wrap--narrow" style={{ paddingTop: 64 }}>
+        <p style={{ fontFamily: "var(--sans)", fontSize: 13, color: "var(--ink-3)", lineHeight: 1.6, margin: 0 }}>
+          A small number of listings are paid placements from vetted operators and are labeled where they appear. The editorial standard is the same either way. See the <a href="#affiliate" onClick={(e) => { e.preventDefault(); go("affiliate"); }}>affiliate disclosure</a> for the full policy.
+        </p>
       </section>
 
       {/* Newsletter */}
-      <div className="wrap wrap--narrow" style={{ paddingTop: 80, paddingBottom: 96 }}>
+      <div className="wrap wrap--narrow" style={{ paddingTop: 64, paddingBottom: 96 }}>
         <NewsletterInline
           heading="Sunday Field Notes"
           blurb="One letter a week. Subscribers see new directory additions and seasonal updates first."
