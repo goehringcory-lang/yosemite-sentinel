@@ -25,7 +25,7 @@ function AboutPage({ go }) {
 
         <div className="prose">
           <p className="dropcap">
-            Yosemite Sentinel began as a pile of paper. Trip notes, weather entries, copies of permits, lists of what was blooming on which week. The kind of paper that piles up when you live near a place long enough that you stop seeing the postcard and start seeing the year.
+            The Talus Field Journal began as a pile of paper. Trip notes, weather entries, copies of permits, lists of what was blooming on which week. The kind of paper that piles up when you live near a place long enough that you stop seeing the postcard and start seeing the year.
           </p>
 
           <p>

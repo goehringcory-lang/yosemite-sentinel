@@ -118,7 +118,7 @@ function Header({ current, go }) {
           onClick={(e) => { e.preventDefault(); go("home"); }}
           style={{ textDecoration: "none", color: "inherit" }}
         >
-          <span className="brand">Yosemite Sentinel</span>
+          <span className="brand">The Talus Field Journal</span>
           <span className="brand__sub">A field journal of Yosemite</span>
         </a>
         <nav className="nav">
@@ -176,7 +176,7 @@ function Footer({ go }) {
       <div className="wrap">
         <div className="site-footer__grid">
           <div className="site-footer__about">
-            <div className="site-footer__masthead">Yosemite Sentinel</div>
+            <div className="site-footer__masthead">The Talus Field Journal</div>
             <div className="site-footer__sub">A field journal of Yosemite</div>
             <p>Notes on a single park, kept slowly. Updated when something is worth saying.</p>
           </div>
@@ -218,10 +218,10 @@ function Footer({ go }) {
           </div>
         </div>
         <div className="site-footer__disclosure">
-          Some links on this site are affiliate links. If you book or buy through one, Yosemite Sentinel may earn a small commission at no extra cost to you. <a href="#affiliate" onClick={(e) => { e.preventDefault(); go("affiliate"); }}>Full disclosure here.</a>
+          Some links on this site are affiliate links. If you book or buy through one, The Talus Field Journal may earn a small commission at no extra cost to you. <a href="#affiliate" onClick={(e) => { e.preventDefault(); go("affiliate"); }}>Full disclosure here.</a>
         </div>
         <div className="site-footer__legal">
-          <div>© 2026 Yosemite Sentinel. Independent. Not affiliated with the National Park Service.</div>
+          <div>© 2026 The Talus Field Journal. Independent. Not affiliated with the National Park Service.</div>
           <div>
             <a href="#privacy" onClick={(e) => { e.preventDefault(); go("privacy"); }}>Privacy</a>
             <a href="#terms" onClick={(e) => { e.preventDefault(); go("terms"); }}>Terms</a>

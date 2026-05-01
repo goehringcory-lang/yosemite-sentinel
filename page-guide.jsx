@@ -33,7 +33,7 @@ function GuidePage({ go }) {
             <h2>Why a guidebook</h2>
 
             <p>
-              Most of what's on the Yosemite Sentinel will always be free. The articles, the kit lists, the trail notes — that's how I want this site to work. But the trip-planning side of what I do (the part where someone emails me with their dates, their kids' ages, their hiking comfort, their flight, and asks for a real plan) doesn't fit in an article. It's a book.
+              Most of what's on The Talus Field Journal will always be free. The articles, the kit lists, the trail notes — that's how I want this site to work. But the trip-planning side of what I do (the part where someone emails me with their dates, their kids' ages, their hiking comfort, their flight, and asks for a real plan) doesn't fit in an article. It's a book.
             </p>
 
             <p>
