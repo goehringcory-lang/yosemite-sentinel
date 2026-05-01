@@ -21,7 +21,7 @@ function Placeholder({ caption, tag, size, style, motif, image, credit }) {
         />
       )}
       {!image && motif && <div className="placeholder__motif">{motif}</div>}
-      <div className="placeholder__caption">{caption}</div>
+      {caption && <div className="placeholder__caption">{caption}</div>}
       {credit && <div className="placeholder__credit">{credit}</div>}
     </div>
   );
