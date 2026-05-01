@@ -118,7 +118,7 @@ function Header({ current, go }) {
           onClick={(e) => { e.preventDefault(); go("home"); }}
           style={{ textDecoration: "none", color: "inherit" }}
         >
-          <span className="brand">The Talus Field Journal</span>
+          <span className="brand">The Talus Field</span>
           <span className="brand__sub">A field journal of Yosemite</span>
         </a>
         <nav className="nav">
