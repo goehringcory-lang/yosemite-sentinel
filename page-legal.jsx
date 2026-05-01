@@ -27,7 +27,7 @@ function PrivacyPage() {
       <p>This privacy policy explains what information The Talus Field Journal collects when you visit this website or subscribe to the newsletter, how that information is used, and the choices you have about it. It is written to comply with the General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA).</p>
 
       <h2>1. Who we are</h2>
-      <p>The Talus Field Journal is an independent publication operated by Parker Woods, based in El Portal, California. You can reach us at parker@yosemitesentinel.com.</p>
+      <p>The Talus Field Journal is an independent publication operated by Cory Goehring, based in El Portal, California. You can reach us at Cory@thetalusfieldjournal.com.</p>
 
       <h2>2. What we collect</h2>
       <p>When you visit the site, we collect anonymized analytics data: pages viewed, referrer, approximate location at the country level, browser and device type. We use this to understand which articles are useful and which are not. We do not collect IP addresses in identifiable form.</p>
@@ -41,7 +41,7 @@ function PrivacyPage() {
       <p>This site uses a single first-party cookie to remember your reading preferences. It does not use advertising cookies, tracking cookies, or third-party cookies. We do not run advertisements.</p>
 
       <h2>5. Your rights (GDPR / CCPA)</h2>
-      <p>You have the right to access, correct, export, or delete any personal information we hold about you. To exercise any of these rights, email parker@yosemitesentinel.com with the subject line "Data request." We respond within 30 days.</p>
+      <p>You have the right to access, correct, export, or delete any personal information we hold about you. To exercise any of these rights, email Cory@thetalusfieldjournal.com with the subject line "Data request." We respond within 30 days.</p>
 
       <h2>6. Children</h2>
       <p>This site is not directed at children under 13. We do not knowingly collect information from children.</p>
@@ -50,7 +50,7 @@ function PrivacyPage() {
       <p>If this policy changes in any meaningful way, the change will be announced in the newsletter and the "last updated" date above will change.</p>
 
       <h2>8. Questions</h2>
-      <p>Email parker@yosemitesentinel.com.</p>
+      <p>Email Cory@thetalusfieldjournal.com.</p>
     </LegalShell>
   );
 }
@@ -58,10 +58,10 @@ function PrivacyPage() {
 function TermsPage() {
   return (
     <LegalShell title="Terms of Service" eyebrow="Legal" updated="April 1, 2026">
-      <p>These terms govern your use of The Talus Field Journal (yosemitesentinel.com). By using the site, you agree to them.</p>
+      <p>These terms govern your use of The Talus Field Journal (thetalusfieldjournal.com). By using the site, you agree to them.</p>
 
       <h2>1. Use of content</h2>
-      <p>All articles, photographs, and other content on this site are copyrighted by Parker Woods unless otherwise noted. You may quote up to 300 words in another work with a clear link back to the original article. You may not republish, syndicate, or train machine learning models on any content without written permission.</p>
+      <p>All articles, photographs, and other content on this site are copyrighted by Cory Goehring unless otherwise noted. You may quote up to 300 words in another work with a clear link back to the original article. You may not republish, syndicate, or train machine learning models on any content without written permission.</p>
 
       <h2>2. Accuracy</h2>
       <p>I try to keep everything on this site accurate, and I update articles when conditions change. That said, conditions in Yosemite change constantly. Trail closures, road closures, weather, wildlife behavior, and permit rules are all subject to change without notice. Always verify current conditions with the National Park Service before any trip.</p>
@@ -103,7 +103,7 @@ function AffiliatePage() {
       <p>This disclosure is provided in accordance with the Federal Trade Commission's 16 CFR Part 255, "Guides Concerning the Use of Endorsements and Testimonials in Advertising."</p>
 
       <h2>Questions</h2>
-      <p>Email parker@yosemitesentinel.com.</p>
+      <p>Email Cory@thetalusfieldjournal.com.</p>
     </LegalShell>
   );
 }

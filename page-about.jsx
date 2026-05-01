@@ -61,7 +61,7 @@ function AboutPage({ go }) {
           <h2>Editor</h2>
 
           <p>
-            Parker Woods. Lives in Yosemite National Park. Reachable at <a href="mailto:parker@yosemitesentinel.com">parker@yosemitesentinel.com</a> and through <a href="#contact" onClick={(e) => { e.preventDefault(); go("contact"); }}>the contact page</a>.
+            Cory Goehring. Lives in Yosemite National Park. Reachable at <a href="mailto:Cory@thetalusfieldjournal.com">Cory@thetalusfieldjournal.com</a> and through <a href="#contact" onClick={(e) => { e.preventDefault(); go("contact"); }}>the contact page</a>.
           </p>
 
           <hr />

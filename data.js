@@ -4,9 +4,9 @@
 window.SITE = {
   brand: "The Talus Field Journal",
   tagline: "Yosemite, written by someone who lives here",
-  authorName: "Parker Woods",
+  authorName: "Cory Goehring",
   authorBio: "Writes from the heart of Yosemite National Park, California.",
-  email: "parker@yosemitesentinel.com",
+  email: "Cory@thetalusfieldjournal.com",
 };
 
 window.CATEGORIES = [
