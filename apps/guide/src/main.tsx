@@ -6,6 +6,7 @@ import './index.css'
 // surfaces immediately instead of when Phase 3 first reads a stop.
 import './content'
 import App from './App'
+import { registerServiceWorker } from './pwa/registerSW'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -14,3 +15,9 @@ createRoot(document.getElementById('root')!).render(
     </BrowserRouter>
   </StrictMode>,
 )
+
+registerServiceWorker((registration) => {
+  window.dispatchEvent(
+    new CustomEvent('tfg:update-ready', { detail: registration }),
+  )
+})
