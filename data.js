@@ -1,8 +1,8 @@
-// Shared content for The Talus Field Journal prototype.
+// Shared content for The Talus Field prototype.
 // Articles are stored once and pulled by every page that needs them.
 
 window.SITE = {
-  brand: "The Talus Field Journal",
+  brand: "The Talus Field",
   tagline: "Yosemite, written by someone who lives here",
   authorName: "Cory Goehring",
   authorBio: "Writes from the heart of Yosemite National Park, California.",

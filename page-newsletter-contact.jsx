@@ -9,7 +9,7 @@ function NewsletterPage({ go }) {
     <div className="page">
       <div className="wrap wrap--narrow" style={{ paddingTop: 96, paddingBottom: 96 }}>
         <div className="eyebrow eyebrow--moss">Newsletter</div>
-        <h1 style={{ marginTop: 16, marginBottom: 24 }}>The Sunday Sentinel.</h1>
+        <h1 style={{ marginTop: 16, marginBottom: 24 }}>Sunday Field Notes.</h1>
         <p style={{ fontSize: 22, color: "var(--ink-2)", lineHeight: 1.5, marginBottom: 40, fontFamily: "var(--display)", fontStyle: "italic" }}>
           A short note on Sundays, when there is something to say. Subscribing is free.
         </p>

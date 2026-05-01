@@ -19,10 +19,10 @@ function GuidePage({ go }) {
       {/* Hero */}
       <section className="page-head">
         <div className="wrap wrap--narrow">
-          <div className="eyebrow eyebrow--moss">The Field Guide · PDF · 2026 Edition</div>
-          <h1>Everything I know about visiting Yosemite, in one PDF.</h1>
+          <div className="eyebrow eyebrow--moss">The Field Guide · Offline app · 2026 Edition</div>
+          <h1>Everything I know about visiting Yosemite — in your pocket, offline.</h1>
           <p className="page-head__dek">
-            Three full itineraries (one day, three days, five days), GPS coordinates for every parking spot and trailhead I trust, elevation profiles, swap plans for crowded days, and the rules of thumb you only learn after twenty seasons in the park. No padding. No affiliate placements. Just the trip.
+            A web app you add to your home screen. Three full itineraries (one day, three days, five days), tappable GPS for every parking spot and trailhead I trust, elevation profiles, swap plans for crowded days, and the rules of thumb you only learn after twenty seasons in the park. Works at the trailhead when service dies. No padding. No affiliate placements. Just the trip.
           </p>
         </div>
       </section>
@@ -32,22 +32,25 @@ function GuidePage({ go }) {
 
           {/* Left column — body */}
           <div className="prose">
-            <Placeholder
-              caption="The Field Guide, 2026 Edition"
-              tag="PLATE I"
-              size="lg"
-              style={{ aspectRatio: "16 / 10", marginBottom: 32 }}
-              motif={<MotifMountains />}
-            />
+            <figure style={{ margin: "0 0 32px" }}>
+              <img
+                src="img/talus-flows-yosemite.jpg"
+                alt="Talus deposits along the valley walls of Yosemite Valley — broken rock fragments accumulated below the cliffs."
+                style={{ width: "100%", display: "block", aspectRatio: "16 / 10", objectFit: "cover" }}
+              />
+              <figcaption style={{ fontFamily: "var(--sans)", fontSize: 12, textTransform: "uppercase", letterSpacing: "0.14em", color: "var(--ink-3)", fontWeight: 600, marginTop: 10 }}>
+                Plate I · Talus along the valley walls · USGS / Alex Demas
+              </figcaption>
+            </figure>
 
             <h2>Why a guidebook</h2>
 
             <p>
-              Most of what's on The Talus Field Journal will always be free. The articles, the kit lists, the trail notes — that's how I want this site to work. But the trip-planning side of what I do (the part where someone emails me with their dates, their kids' ages, their hiking comfort, their flight, and asks for a real plan) doesn't fit in an article. It's a book.
+              Most of what's on The Talus Field will always be free. The articles, the kit lists, the trail notes — that's how I want this site to work. But the trip-planning side of what I do (the part where someone emails me with their dates, their kids' ages, their hiking comfort, their flight, and asks for a real plan) doesn't fit in an article. It's a book.
             </p>
 
             <p>
-              The Field Guide is that book. It's a single PDF you can read on your phone in the car, print at home if you prefer paper, and pull up at a trailhead when the parking lot decision matters. It's the version of the conversation we'd have if you sat across from me at a picnic table in El Portal and said, "I have five days. Show me what to do."
+              The Field Guide is that book. It's an app you add to your home screen — works offline, so it's still there when you lose service in the Valley or up at Tuolumne. Tap any GPS coordinate to open it in Maps. See the day's stops on one screen, with photos that load from your device, not the network. It's the version of the conversation we'd have if you sat across from me at a picnic table in El Portal and said, "I have five days. Show me what to do."
             </p>
 
             <h2>What's inside</h2>
@@ -63,12 +66,12 @@ function GuidePage({ go }) {
             <p>Inside each itinerary, you get:</p>
 
             <ul>
-              <li><strong>GPS coordinates for every recommended parking spot</strong> — including the small turnouts most visitors never find. Drop the coordinates into your phone, follow the line, park where the locals park.</li>
+              <li><strong>Tappable GPS for every recommended parking spot</strong> — including the small turnouts most visitors never find. Tap the coordinate, your Maps app opens with the line drawn for you. Park where the locals park.</li>
               <li><strong>GPS coordinates for every trailhead</strong> in the guide, plus the key viewpoints you can reach without hiking.</li>
               <li><strong>Elevation profiles</strong> for every recommended hike. Total gain, peak elevation, and the section where the trail actually gets hard.</li>
               <li><strong>Trip-planning maps</strong> with the day's route, the alternates, and the swap points if the original plan dies.</li>
               <li><strong>Time budgets</strong> for every stop, drive, and meal — the kind of timing that prevents the late-afternoon scramble.</li>
-              <li><strong>A printable packing checklist</strong> tuned to the season you're visiting.</li>
+              <li><strong>A seasonal packing checklist.</strong> Check items off in-app or print it for the dresser.</li>
               <li><strong>The contingency tree</strong> — what to do if the road is closed, the lot is full, the smoke rolled in, the weather turned.</li>
             </ul>
 
@@ -110,11 +113,12 @@ function GuidePage({ go }) {
             <h2>Format and delivery</h2>
 
             <ul>
-              <li>Single PDF, roughly 120 pages. Hyperlinked table of contents.</li>
-              <li>Optimized for both screen reading and home printing (8.5 × 11, no bleed).</li>
-              <li>GPS coordinates given in standard decimal degrees and as plain map links you can tap on a phone.</li>
-              <li>Delivered immediately after purchase as a download link to the email you provide. Free updates for the 2026 season.</li>
-              <li>No DRM. The file is yours. Put it on your phone, your tablet, your laptop, and print it for the car.</li>
+              <li><strong>A web app you add to your home screen.</strong> Looks and feels like a native app — no App Store, no install wait, no version to keep updated.</li>
+              <li><strong>Works offline.</strong> The whole guide, every photo, and offline map tiles for Yosemite cache to your device on first open. Lose service in the Valley or up at Tuolumne, the guide is still there.</li>
+              <li><strong>Tappable GPS coordinates</strong> that open Apple Maps or Google Maps directly. No copying, no typing.</li>
+              <li><strong>Embedded maps for every day,</strong> with all stops on one screen.</li>
+              <li><strong>Updates push silently through the 2026 season.</strong> New advice, route swaps, seasonal addenda all arrive without you re-downloading anything.</li>
+              <li><strong>Buy once, log in on every device you own.</strong> iPad in the car, iPhone at the trailhead, laptop the night before.</li>
             </ul>
 
             <h2>One small promise</h2>
@@ -131,7 +135,7 @@ function GuidePage({ go }) {
             <div className="eyebrow eyebrow--moss" style={{ marginBottom: 14 }}>The Field Guide</div>
             <div style={{ fontFamily: "var(--display)", fontSize: 56, lineHeight: 1, fontWeight: 500, marginBottom: 8 }}>{GUIDE_PRICE}</div>
             <div style={{ fontFamily: "var(--sans)", fontSize: 12, textTransform: "uppercase", letterSpacing: "0.14em", color: "var(--ink-3)", fontWeight: 600, marginBottom: 24 }}>
-              PDF · Instant download · 2026 Edition
+              Offline app · 2026 Edition
             </div>
 
             {/* Scarcity block */}
@@ -170,20 +174,20 @@ function GuidePage({ go }) {
             )}
 
             <p style={{ fontFamily: "var(--serif)", fontSize: 14, color: "var(--ink-2)", lineHeight: 1.55, margin: 0 }}>
-              One PDF. Three itineraries. GPS coordinates for parking, trailheads, and viewpoints. Elevation profiles. Trip-planning maps. Free updates through the 2026 season. Refund if it doesn't earn its keep.
+              An offline app. Three itineraries. Tappable GPS for parking, trailheads, and viewpoints. Embedded maps. Updates push automatically through the 2026 season. Refund if it doesn't earn its keep.
             </p>
 
             <div style={{ borderTop: "1px solid var(--rule)", marginTop: 24, paddingTop: 20 }}>
-              <div className="eyebrow" style={{ marginBottom: 10 }}>In the file</div>
+              <div className="eyebrow" style={{ marginBottom: 10 }}>In the app</div>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, fontFamily: "var(--sans)", fontSize: 13, color: "var(--ink-2)", lineHeight: 1.7 }}>
                 <li>· One-day, three-day, five-day plans</li>
-                <li>· GPS coords for every parking spot</li>
-                <li>· GPS coords for every trailhead</li>
+                <li>· Works offline anywhere in the park</li>
+                <li>· Tappable GPS for every stop</li>
                 <li>· Elevation profiles per hike</li>
-                <li>· Trip-planning maps</li>
+                <li>· Embedded day-maps</li>
                 <li>· Hour-by-hour time budgets</li>
                 <li>· Contingency tree for closures</li>
-                <li>· Printable seasonal packing list</li>
+                <li>· Seasonal packing list</li>
               </ul>
             </div>
 
@@ -200,7 +204,7 @@ function GuidePage({ go }) {
       {/* Newsletter */}
       <div className="wrap wrap--narrow" style={{ paddingBottom: 96 }}>
         <NewsletterInline
-          heading="The Sunday Sentinel"
+          heading="Sunday Field Notes"
           blurb="A short note on Sundays. Subscribers hear about Field Guide updates and seasonal addenda first."
         />
       </div>

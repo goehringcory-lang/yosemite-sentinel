@@ -24,10 +24,10 @@ function LegalShell({ title, eyebrow, updated, children }) {
 function PrivacyPage() {
   return (
     <LegalShell title="Privacy Policy" eyebrow="Legal" updated="April 1, 2026">
-      <p>This privacy policy explains what information The Talus Field Journal collects when you visit this website or subscribe to the newsletter, how that information is used, and the choices you have about it. It is written to comply with the General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA).</p>
+      <p>This privacy policy explains what information The Talus Field collects when you visit this website or subscribe to the newsletter, how that information is used, and the choices you have about it. It is written to comply with the General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA).</p>
 
       <h2>1. Who we are</h2>
-      <p>The Talus Field Journal is an independent publication operated by Cory Goehring, based in El Portal, California. You can reach us at Cory@thetalusfieldjournal.com.</p>
+      <p>The Talus Field is an independent publication operated by Cory Goehring, based in El Portal, California. You can reach us at Cory@thetalusfieldjournal.com.</p>
 
       <h2>2. What we collect</h2>
       <p>When you visit the site, we collect anonymized analytics data: pages viewed, referrer, approximate location at the country level, browser and device type. We use this to understand which articles are useful and which are not. We do not collect IP addresses in identifiable form.</p>
@@ -58,7 +58,7 @@ function PrivacyPage() {
 function TermsPage() {
   return (
     <LegalShell title="Terms of Service" eyebrow="Legal" updated="April 1, 2026">
-      <p>These terms govern your use of The Talus Field Journal (thetalusfieldjournal.com). By using the site, you agree to them.</p>
+      <p>These terms govern your use of The Talus Field (thetalusfieldjournal.com). By using the site, you agree to them.</p>
 
       <h2>1. Use of content</h2>
       <p>All articles, photographs, and other content on this site are copyrighted by Cory Goehring unless otherwise noted. You may quote up to 300 words in another work with a clear link back to the original article. You may not republish, syndicate, or train machine learning models on any content without written permission.</p>
@@ -70,7 +70,7 @@ function TermsPage() {
       <p>The site is provided as-is. I make no warranty, express or implied, that any information on the site is accurate, complete, or fit for any particular purpose. You assume all risk for your own choices in the park.</p>
 
       <h2>4. Limitation of liability</h2>
-      <p>To the fullest extent permitted by law, The Talus Field Journal is not liable for any injury, loss, or damage arising from your use of this site or your activities in Yosemite National Park. The mountains are real. Walk carefully.</p>
+      <p>To the fullest extent permitted by law, The Talus Field is not liable for any injury, loss, or damage arising from your use of this site or your activities in Yosemite National Park. The mountains are real. Walk carefully.</p>
 
       <h2>5. Third-party links</h2>
       <p>The site contains links to third-party sites, including affiliate links to lodging and gear vendors. We are not responsible for the content or practices of those sites.</p>
@@ -87,7 +87,7 @@ function TermsPage() {
 function AffiliatePage() {
   return (
     <LegalShell title="Affiliate Disclosure" eyebrow="Legal" updated="April 1, 2026">
-      <p>The Talus Field Journal is a participant in several affiliate programs, including Amazon Associates, Bookshop.org, REI's affiliate program, and a small number of guidebook publishers' direct programs.</p>
+      <p>The Talus Field is a participant in several affiliate programs, including Amazon Associates, Bookshop.org, REI's affiliate program, and a small number of guidebook publishers' direct programs.</p>
 
       <p>What that means in plain language: when an article on this site links to a product, a book, or a piece of lodging, that link may be an affiliate link. If you click through and make a purchase, I receive a small commission. The price you pay does not change. Whether or not you use the affiliate link, the recommendation in the article is the same.</p>
 

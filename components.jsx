@@ -176,7 +176,7 @@ function Footer({ go }) {
       <div className="wrap">
         <div className="site-footer__grid">
           <div className="site-footer__about">
-            <div className="site-footer__masthead">The Talus Field Journal</div>
+            <div className="site-footer__masthead">The Talus Field</div>
             <div className="site-footer__sub">A field journal of Yosemite</div>
             <p>Notes on a single park, kept slowly. Updated when something is worth saying.</p>
           </div>
@@ -218,10 +218,10 @@ function Footer({ go }) {
           </div>
         </div>
         <div className="site-footer__disclosure">
-          Some links on this site are affiliate links. If you book or buy through one, The Talus Field Journal may earn a small commission at no extra cost to you. <a href="#affiliate" onClick={(e) => { e.preventDefault(); go("affiliate"); }}>Full disclosure here.</a>
+          Some links on this site are affiliate links. If you book or buy through one, The Talus Field may earn a small commission at no extra cost to you. <a href="#affiliate" onClick={(e) => { e.preventDefault(); go("affiliate"); }}>Full disclosure here.</a>
         </div>
         <div className="site-footer__legal">
-          <div>© 2026 The Talus Field Journal. Independent. Not affiliated with the National Park Service.</div>
+          <div>© 2026 The Talus Field. Independent. Not affiliated with the National Park Service.</div>
           <div>
             <a href="#privacy" onClick={(e) => { e.preventDefault(); go("privacy"); }}>Privacy</a>
             <a href="#terms" onClick={(e) => { e.preventDefault(); go("terms"); }}>Terms</a>
@@ -277,7 +277,7 @@ function NewsletterInline({ heading, blurb }) {
   const [done, setDone] = useState(false);
   return (
     <div className="nlbox">
-      <h3>{heading || "The Sunday Sentinel"}</h3>
+      <h3>{heading || "Sunday Field Notes"}</h3>
       <p>{blurb || "A short note on Sundays, when there is something to say."}</p>
       {done ? (
         <div style={{ fontFamily: "var(--sans)", fontSize: 14, color: "var(--moss)" }}>

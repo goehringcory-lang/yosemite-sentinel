@@ -110,7 +110,7 @@ function ArticlePage({ slug, go }) {
           </div>
 
           <NewsletterInline
-            heading="The Sunday Sentinel"
+            heading="Sunday Field Notes"
             blurb="One letter a week. If you found this useful, you'll probably like the rest."
           />
         </div>

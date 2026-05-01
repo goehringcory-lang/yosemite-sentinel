@@ -78,7 +78,7 @@ function PlacesPage({ go }) {
       {/* Newsletter */}
       <div className="wrap wrap--narrow" style={{ paddingTop: 80, paddingBottom: 96 }}>
         <NewsletterInline
-          heading="The Sunday Sentinel"
+          heading="Sunday Field Notes"
           blurb="One letter a week. Subscribers see new directory additions and seasonal updates first."
         />
       </div>

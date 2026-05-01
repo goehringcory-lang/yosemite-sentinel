@@ -19,7 +19,7 @@ function HomePage({ go }) {
               <span className="dot"></span>
               <span>Vol. III · No. 18 · The April Issue</span>
             </div>
-            <h1>Notes from the Valley.</h1>
+            <h1>Notes from the Field.</h1>
             <p className="hero__dek">
               A field journal of one national park. Trails, weather, what is open and what is not, and the occasional longer essay when something is worth sitting with.
             </p>
@@ -28,7 +28,7 @@ function HomePage({ go }) {
                 Start reading <span className="btn__arrow">→</span>
               </a>
               <a className="btn btn--ghost" href="#newsletter" onClick={(e) => { e.preventDefault(); go("newsletter"); }}>
-                The Sunday Sentinel
+                Sunday Field Notes
               </a>
             </div>
           </div>
