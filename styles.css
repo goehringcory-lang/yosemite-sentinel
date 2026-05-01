@@ -1,10 +1,10 @@
 /* ============================================================
-   The Talus Field — Alpine Journal direction
+   The Talus Field. Alpine Journal direction
    Serious editorial chrome. Ruled. Dense. Typographic.
    ============================================================ */
 
 :root {
-  /* Golden hour — warm cream paper, oxidized iron red */
+  /* Golden hour. Warm cream paper, oxidized iron red */
   --paper: #f1ead6;
   --paper-2: #e6dcc1;
   --paper-3: #d8c89e;
@@ -18,7 +18,7 @@
   --rust: #7a2a10;
   --gold: #8a661a;
 
-  /* Type system — Alpine Journal-leaning */
+  /* Type system. Alpine Journal-leaning */
   --serif: 'EB Garamond', 'Source Serif 4', Georgia, 'Times New Roman', serif;
   --display: 'EB Garamond', 'Source Serif 4', Georgia, serif;
   --sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
@@ -28,7 +28,7 @@
   --gutter: clamp(20px, 4vw, 48px);
 }
 
-/* Palette swap — granite */
+/* Palette swap. Granite */
 [data-palette="granite"] {
   --paper: #efece3;
   --paper-2: #e1ddcd;
@@ -44,7 +44,7 @@
   --gold: #8a7020;
 }
 
-/* Palette swap — high sierra */
+/* Palette swap. High sierra */
 [data-palette="sierra"] {
   --paper: #ebede9;
   --paper-2: #d8ddd9;
@@ -82,7 +82,7 @@ html {
 
 body {
   background: var(--paper);
-  /* Subtle paper grain via radial dot — barely visible, just texture */
+  /* Subtle paper grain via radial dot. Barely visible, just texture */
   background-image: radial-gradient(color-mix(in oklab, var(--ink) 5%, transparent) 1px, transparent 1px);
   background-size: 4px 4px;
   background-position: 0 0;
@@ -331,7 +331,7 @@ p { margin: 0 0 1.1em; text-wrap: pretty; }
   transform: translateY(-2px);
 }
 
-/* Primary CTA — the paid product */
+/* Primary CTA. The paid product */
 .nav__primary {
   background: var(--ink);
   color: var(--paper) !important;
@@ -351,7 +351,7 @@ p { margin: 0 0 1.1em; text-wrap: pretty; }
   border-color: var(--moss) !important;
 }
 
-/* ===== Places & People — quiet "for operators" strip ===== */
+/* ===== Places & People. Quiet "for operators" strip ===== */
 .places-strip {
   display: flex;
   align-items: center;
@@ -391,7 +391,7 @@ p { margin: 0 0 1.1em; text-wrap: pretty; }
 }
 .places-strip__cta:hover { color: var(--moss) !important; border-bottom-color: var(--moss); }
 
-/* ===== Places & People — sponsorship pitch ===== */
+/* ===== Places & People. Sponsorship pitch ===== */
 .places-pitch {
   border: 1px solid var(--ink);
   border-left: 6px solid var(--moss);
@@ -745,7 +745,7 @@ p { margin: 0 0 1.1em; text-wrap: pretty; }
 .btn__arrow { transition: transform 0.15s ease; font-size: 12px; }
 .btn:hover .btn__arrow { transform: translateX(3px); }
 
-/* ===== Photo placeholder — Alpine Journal plate ===== */
+/* ===== Photo placeholder. Alpine Journal plate ===== */
 .placeholder {
   background:
     /* faint cross-hatch, photogravure feel */

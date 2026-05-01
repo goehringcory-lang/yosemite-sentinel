@@ -6,7 +6,7 @@ window.ARTICLE_BODIES["pack-your-car-for-yosemite"] = function PackYourCarForYos
   return (
     <>
       <p className="dropcap">
-        Nobody writes about packing the car. Everybody writes about packing the backpack, the day pack, the cooler. But the car is the base camp for most Yosemite trips — car campers, lodge guests, and day-trippers alike — and what you have in it determines whether a flat tire is an inconvenience or a crisis, whether a surprise thunderstorm sends you home or sends you to the backup plan, and whether the best spontaneous detour of the trip actually happens or gets killed by "we don't have what we need."
+        Nobody writes about packing the car. Everybody writes about packing the backpack, the day pack, the cooler. But the car is the base camp for most Yosemite trips (car campers, lodge guests, and day-trippers alike), and what you have in it determines whether a flat tire is an inconvenience or a crisis, whether a surprise thunderstorm sends you home or sends you to the backup plan, and whether the best spontaneous detour of the trip actually happens or gets killed by "we don't have what we need."
       </p>
 
       <p>
@@ -28,7 +28,7 @@ window.ARTICLE_BODIES["pack-your-car-for-yosemite"] = function PackYourCarForYos
       </p>
 
       <p>
-        Pack the cooler in layers: ice on the bottom, things you'll eat last on the bottom, things you'll eat first on top. Freeze water bottles and use them as ice blocks — they double as cold drinking water as they melt. Pre-make sandwiches and wraps for the first two days. Cut fruit and vegetables before you leave home and store them in containers. If you're car camping, bring eggs, cheese, and tortillas for camp breakfasts.
+        Pack the cooler in layers: ice on the bottom, things you'll eat last on the bottom, things you'll eat first on top. Freeze water bottles and use them as ice blocks. They double as cold drinking water as they melt. Pre-make sandwiches and wraps for the first two days. Cut fruit and vegetables before you leave home and store them in containers. If you're car camping, bring eggs, cheese, and tortillas for camp breakfasts.
       </p>
 
       <p>
@@ -42,7 +42,7 @@ window.ARTICLE_BODIES["pack-your-car-for-yosemite"] = function PackYourCarForYos
       </p>
 
       <p>
-        Tap water is available in the Valley — there are filling stations at the visitor center and at campgrounds. But if you're at Olmsted Point at 8,500 feet and everyone's bottles are empty, the car jug is the play. Fill it at home, keep it in the trunk, and you'll use it every single day.
+        Tap water is available in the Valley. There are filling stations at the visitor center and at campgrounds. But if you're at Olmsted Point at 8,500 feet and everyone's bottles are empty, the car jug is the play. Fill it at home, keep it in the trunk, and you'll use it every single day.
       </p>
 
       <h2>Layers in the car, not just on your back</h2>
@@ -74,7 +74,7 @@ window.ARTICLE_BODIES["pack-your-car-for-yosemite"] = function PackYourCarForYos
       </p>
 
       <p>
-        If you're driving to Yosemite from the east on Tioga Road, know that there is no gas between Lee Vining and Crane Flat — that's 60 miles of mountain highway. Fill up before you enter the park from any direction.
+        If you're driving to Yosemite from the east on Tioga Road, know that there is no gas between Lee Vining and Crane Flat. That's 60 miles of mountain highway. Fill up before you enter the park from any direction.
       </p>
 
       <h2>The roadside kit</h2>
@@ -84,7 +84,7 @@ window.ARTICLE_BODIES["pack-your-car-for-yosemite"] = function PackYourCarForYos
       </p>
 
       <p>
-        Jumper cables or a portable jump starter. The number of dead batteries I've seen in Yosemite parking lots — from headlights left on, from cold mornings, from old batteries pushed past their limit — is too high to count.
+        Jumper cables or a portable jump starter. The number of dead batteries I've seen in Yosemite parking lots is too high to count. Headlights left on. Cold mornings. Old batteries pushed past their limit.
       </p>
 
       <p>
@@ -96,13 +96,13 @@ window.ARTICLE_BODIES["pack-your-car-for-yosemite"] = function PackYourCarForYos
       </p>
 
       <p>
-        A flashlight. Not your phone flashlight — a real flashlight that works when your phone is dead, which it will be, because you've been using it for photos all day.
+        A flashlight. Not your phone flashlight. A real flashlight that works when your phone is dead, which it will be, because you've been using it for photos all day.
       </p>
 
       <h2>The things people forget</h2>
 
       <p>
-        Binoculars. Yosemite is a place where things happen far away — a peregrine falcon hunting off El Capitan, a bear crossing a meadow at 300 yards, climbers on the Regular Northwest Face. A pair of binoculars turns those moments from squinting into seeing. An 8x42 pair lives in my car year-round and gets used almost every trip.
+        Binoculars. Yosemite is a place where things happen far away. A peregrine falcon hunting off El Capitan. A bear crossing a meadow at 300 yards. Climbers on the Regular Northwest Face. A pair of binoculars turns those moments from squinting into seeing. An 8x42 pair lives in my car year-round and gets used almost every trip.
       </p>
 
       <p>
@@ -118,13 +118,13 @@ window.ARTICLE_BODIES["pack-your-car-for-yosemite"] = function PackYourCarForYos
       </p>
 
       <p>
-        Camp chairs. Even if you're staying in a lodge, a pair of lightweight camp chairs in the trunk means you can set up anywhere — at a picnic area, at a viewpoint, in a meadow at sunset. Some of the best hours in Yosemite happen sitting in a camp chair doing absolutely nothing.
+        Camp chairs. Even if you're staying in a lodge, a pair of lightweight camp chairs in the trunk means you can set up anywhere: at a picnic area, at a viewpoint, in a meadow at sunset. Some of the best hours in Yosemite happen sitting in a camp chair doing absolutely nothing.
       </p>
 
       <h2>Bear rules apply to your car, too</h2>
 
       <p>
-        If you're in Yosemite and there is food in your car — any food, including sealed coolers, wrapped granola bars, canned drinks, and that banana you forgot in the door pocket — the food must be stored properly when you're not in the vehicle.
+        If you're in Yosemite and there is food in your car (any food, including sealed coolers, wrapped granola bars, canned drinks, and that banana you forgot in the door pocket), the food must be stored properly when you're not in the vehicle.
       </p>
 
       <p>

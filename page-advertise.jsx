@@ -9,7 +9,7 @@ function AdvertisePage({ go }) {
           <div className="eyebrow eyebrow--moss">For Operators</div>
           <h1>List your business on The Talus Field.</h1>
           <p className="page-head__dek">
-            The Talus Field is read by people actively planning a Yosemite trip — the audience that's about to book lodging, hire a guide, or buy a tour. If you operate a lodge, an inn, a guiding service, an outfitter, a transportation company, or any other Yosemite-adjacent business, a placement in the Places &amp; People directory puts you in front of the right reader at the right moment.
+            The Talus Field is read by people actively planning a Yosemite trip. The audience that's about to book lodging, hire a guide, or buy a tour. If you operate a lodge, an inn, a guiding service, an outfitter, a transportation company, or any other Yosemite-adjacent business, a placement in the Places &amp; People directory puts you in front of the right reader at the right moment.
           </p>
         </div>
       </section>
@@ -32,7 +32,7 @@ function AdvertisePage({ go }) {
               <h3>What I won't do</h3>
               <ul>
                 <li>List businesses I'd talk a friend out of using</li>
-                <li>Hide that a listing is sponsored — every paid placement is labeled</li>
+                <li>Hide that a listing is sponsored. Every paid placement is labeled</li>
                 <li>Let payment override the editorial tone of the blurb</li>
                 <li>Take placements from operators with active permit or safety violations</li>
               </ul>
@@ -64,17 +64,17 @@ function AdvertisePage({ go }) {
         </div>
       </section>
 
-      {/* Why it works — short editorial */}
+      {/* Why it works. Short editorial */}
       <section className="wrap wrap--narrow" style={{ paddingTop: 32, paddingBottom: 80 }}>
         <h2 style={{ fontFamily: "var(--display)", fontSize: 32, fontWeight: 500, lineHeight: 1.15, margin: "0 0 18px" }}>Why a directory placement works</h2>
         <p style={{ fontFamily: "var(--serif)", fontSize: 18, color: "var(--ink-2)", lineHeight: 1.55, marginBottom: 18 }}>
-          The visitors reading The Talus Field are not casual browsers. They've already decided to come to the park. They're working out how to do it well — which means they're looking for a place to sleep, a guide to hire, a class to take, a route to drive. A search-engine ad reaches a colder audience and costs a multiple of what a year of placement here costs. A social post reaches a larger but less qualified audience that mostly will not convert.
+          The visitors reading The Talus Field are not casual browsers. They've already decided to come to the park. They're working out how to do it well, which means they're looking for a place to sleep, a guide to hire, a class to take, a route to drive. A search-engine ad reaches a colder audience and costs a multiple of what a year of placement here costs. A social post reaches a larger but less qualified audience that mostly will not convert.
         </p>
         <p style={{ fontFamily: "var(--serif)", fontSize: 18, color: "var(--ink-2)", lineHeight: 1.55, marginBottom: 18 }}>
           The directory shows up in a moment of decision, on a site the reader already trusts to give them straight answers. That's the placement.
         </p>
         <p style={{ fontFamily: "var(--serif)", fontSize: 18, color: "var(--ink-2)", lineHeight: 1.55 }}>
-          If you're an operator who fits — and you'd be willing to send a friend to your business — write to <a href="mailto:Cory@thetalusfieldjournal.com">Cory@thetalusfieldjournal.com</a> or use <a href="#contact" onClick={(e) => { e.preventDefault(); go("contact"); }}>the contact form</a>. I read every inquiry.
+          If you're an operator who fits, and you'd be willing to send a friend to your business, write to <a href="mailto:Cory@thetalusfieldjournal.com">Cory@thetalusfieldjournal.com</a> or use <a href="#contact" onClick={(e) => { e.preventDefault(); go("contact"); }}>the contact form</a>. I read every inquiry.
         </p>
       </section>
 

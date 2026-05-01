@@ -2,7 +2,7 @@
 const { useState, useEffect, useMemo, useRef } = React;
 
 // ============================================================
-// Photo placeholder — nature-journal treatment
+// Photo placeholder. Nature-journal treatment.
 // ============================================================
 function Placeholder({ caption, tag, size, style, motif, image, credit }) {
   return (
@@ -63,12 +63,12 @@ function MotifTrees() {
 // Masthead
 // ============================================================
 function Header({ current, go }) {
-  // Primary text links — content people read every visit.
+  // Primary text links. Content people read every visit.
   const primaryNav = [
     ["articles", "Articles"],
     ["kit", "Kit"],
   ];
-  // Secondary items — utility / lower-frequency. Tucked behind a dropdown.
+  // Secondary items, lower-frequency utility. Tucked behind a dropdown.
   const moreNav = [
     ["places", "Places & People"],
     ["about", "About"],

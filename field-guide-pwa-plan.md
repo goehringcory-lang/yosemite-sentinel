@@ -1,18 +1,18 @@
-# Field Guide PWA — Implementation Plan
+# Field Guide PWA: Implementation Plan
 
-> **How to use this file:** When you're ready to build, paste this entire document into a fresh Claude conversation with the prompt: *"Build the Field Guide PWA according to this plan. Start with Phase 0 and check in with me after each phase before continuing."* The plan is self-contained — it includes the project context, tech decisions, and a phase-by-phase build sequence.
+> **How to use this file:** When you're ready to build, paste this entire document into a fresh Claude conversation with the prompt: *"Build the Field Guide PWA according to this plan. Start with Phase 0 and check in with me after each phase before continuing."* The plan is self-contained. It includes the project context, tech decisions, and a phase-by-phase build sequence.
 
 ---
 
 ## Context
 
-**The Talus Field** is a Yosemite editorial site at `thetalusfieldjournal.com`. The current repo is a static React-via-CDN prototype (see `index.html`, `page-guide.jsx`, etc.). The site sells one product: **The Field Guide**, a $29 trip-planning guide capped at **100 sales per month**. The cap is a real constraint, not marketing — the locations the guide reveals can't absorb more volume without becoming overcrowded.
+**The Talus Field** is a Yosemite editorial site at `thetalusfieldjournal.com`. The current repo is a static React-via-CDN prototype (see `index.html`, `page-guide.jsx`, etc.). The site sells one product: **The Field Guide**, a $29 trip-planning guide capped at **100 sales per month**. The cap is a real constraint, not marketing. The locations the guide reveals can't absorb more volume without becoming overcrowded.
 
-**V1 ships as a PDF.** **V2 — what this plan covers — is a buyer-only Progressive Web App (PWA)** that replaces the PDF with an offline-capable mobile experience. Existing PDF buyers get a free upgrade.
+**V1 ships as a PDF.** **V2, what this plan covers, is a buyer-only Progressive Web App (PWA)** that replaces the PDF with an offline-capable mobile experience. Existing PDF buyers get a free upgrade.
 
 ### Why a PWA instead of PDF
 - Tap-to-open GPS coordinates work natively on iOS/Android (PDF coord linking is unreliable).
-- Embedded maps with **offline tiles** cached for Yosemite — critical because the park has hours-long dead cell zones.
+- Embedded maps with **offline tiles** cached for Yosemite. Critical because the park has hours-long dead cell zones.
 - Push silent updates through the 2026 season without users re-downloading.
 - Feels like an app via "Add to Home Screen", with zero App Store overhead.
 
@@ -38,9 +38,9 @@ App Store fees, review delays, and ongoing maintenance aren't justified for a si
 
 ---
 
-## Phase 0 — Repo & Scaffolding
+## Phase 0: Repo & Scaffolding
 
-1. In this repo, create `apps/guide/` (subfolder — keeps editorial site and PWA in one repo).
+1. In this repo, create `apps/guide/` (subfolder; keeps editorial site and PWA in one repo).
 2. `npm create vite@latest apps/guide -- --template react-ts`
 3. Install Tailwind: `npm i -D tailwindcss postcss autoprefixer && npx tailwindcss init -p`
 4. Install runtime deps: `npm i maplibre-gl @stripe/stripe-js zod react-router-dom`
@@ -58,7 +58,7 @@ App Store fees, review delays, and ongoing maintenance aren't justified for a si
 
 ---
 
-## Phase 1 — Auth Flow
+## Phase 1: Auth Flow
 
 ### Sequence
 1. Buyer clicks "Reserve a copy" on the editorial site → redirected to **Stripe Checkout** (mode: payment, $29 line item, metadata: `product=field_guide_2026`).
@@ -73,18 +73,18 @@ App Store fees, review delays, and ongoing maintenance aren't justified for a si
 6. **All content endpoints** require the JWT in `Authorization: Bearer …` header.
 
 ### Files
-- `workers/src/index.ts` — entry, routing (use `hono` or `itty-router`).
-- `workers/src/routes/stripe.ts` — webhook handler with signature verification.
-- `workers/src/routes/auth.ts` — `exchange` and `login` endpoints.
-- `workers/src/lib/jwt.ts` — sign/verify with `@tsndr/cloudflare-worker-jwt`.
-- `workers/src/lib/email.ts` — Resend send wrapper.
-- `apps/guide/src/auth/AuthGate.tsx` — React context that reads JWT, redirects to `/login` if missing/expired.
+- `workers/src/index.ts`: entry, routing (use `hono` or `itty-router`).
+- `workers/src/routes/stripe.ts`: webhook handler with signature verification.
+- `workers/src/routes/auth.ts`: `exchange` and `login` endpoints.
+- `workers/src/lib/jwt.ts`: sign/verify with `@tsndr/cloudflare-worker-jwt`.
+- `workers/src/lib/email.ts`: Resend send wrapper.
+- `apps/guide/src/auth/AuthGate.tsx`: React context that reads JWT, redirects to `/login` if missing/expired.
 
 **Verify:** trigger a test Stripe payment (Stripe CLI: `stripe listen --forward-to localhost:8787/api/stripe/webhook`) → email arrives → magic link opens app and authenticates.
 
 ---
 
-## Phase 2 — Content Model
+## Phase 2: Content Model
 
 The guide is structured around three trip lengths (1, 3, 5 days). The atomic unit is a **stop**.
 
@@ -128,26 +128,26 @@ export type StopT = z.infer<typeof Stop>;
 
 ---
 
-## Phase 3 — App Shell & Routes
+## Phase 3: App Shell & Routes
 
 ### Routes
-- `/` — hub. "How long is your trip?" → 1 day / 3 days / 5 days cards.
-- `/trip/:tripId` — overview of selected trip with all days listed.
-- `/trip/:tripId/day/:dayN` — vertical scroll of stops for that day.
-- `/stop/:stopId` — full detail view (linked from any card).
-- `/map` — full-screen map of current day or full trip.
-- `/search` — search across stop titles + bodies.
-- `/login` — email + 6-digit code entry.
-- `/open` — magic link landing.
-- `/account` — view expiry, contact link, sign out.
+- `/`: hub. "How long is your trip?" → 1 day / 3 days / 5 days cards.
+- `/trip/:tripId`: overview of selected trip with all days listed.
+- `/trip/:tripId/day/:dayN`: vertical scroll of stops for that day.
+- `/stop/:stopId`: full detail view (linked from any card).
+- `/map`: full-screen map of current day or full trip.
+- `/search`: search across stop titles + bodies.
+- `/login`: email + 6-digit code entry.
+- `/open`: magic link landing.
+- `/account`: view expiry, contact link, sign out.
 
 ### UI primitives
-- `<StopCard>` — photo, title, eyebrow, GPS chip, elevation, time, body markdown, swap callout.
-- `<MapsLink>` — tappable GPS coord (see code below).
-- `<MapChip>` — small inline map preview (one or many points).
-- `<FullMap>` — full-screen MapLibre with all stops as pins.
-- `<DayBar>` — sticky day-of-trip indicator with progress dots.
-- `<UpdatedStamp>` — "Last updated 2026-04-30" pulled from build metadata (`import.meta.env.VITE_BUILD_DATE`).
+- `<StopCard>`: photo, title, eyebrow, GPS chip, elevation, time, body markdown, swap callout.
+- `<MapsLink>`: tappable GPS coord (see code below).
+- `<MapChip>`: small inline map preview (one or many points).
+- `<FullMap>`: full-screen MapLibre with all stops as pins.
+- `<DayBar>`: sticky day-of-trip indicator with progress dots.
+- `<UpdatedStamp>`: "Last updated 2026-04-30" pulled from build metadata (`import.meta.env.VITE_BUILD_DATE`).
 
 ### Tappable GPS chip
 
@@ -170,10 +170,10 @@ export function MapsLink({ coord, label }: { coord: [number, number]; label: str
 
 ---
 
-## Phase 4 — Maps & Offline Tiles
+## Phase 4: Maps & Offline Tiles
 
 1. Initialize MapLibre. For dev: `https://demotiles.maplibre.org/style.json`. For prod: a MapTiler or Stadia Maps style (free tier).
-2. `<MapChip>` renders a static-tile preview PNG (fast load) — switches to interactive on tap.
+2. `<MapChip>` renders a static-tile preview PNG (fast load); switches to interactive on tap.
 3. `<FullMap>` renders interactive MapLibre with all stops as markers, `fitBounds` to show them all.
 4. **Tile caching** in the service worker:
    - Bounding box for Yosemite: `[-119.886, 37.495, -119.197, 38.193]`.
@@ -185,7 +185,7 @@ export function MapsLink({ coord, label }: { coord: [number, number]; label: str
 
 ---
 
-## Phase 5 — PWA & Offline Shell
+## Phase 5: PWA & Offline Shell
 
 1. Configure `vite-plugin-pwa` in `vite.config.ts`:
    ```ts
@@ -214,7 +214,7 @@ export function MapsLink({ coord, label }: { coord: [number, number]; label: str
 
 ---
 
-## Phase 6 — Deployment
+## Phase 6: Deployment
 
 1. **Cloudflare Pages**: connect to this repo. Build command: `cd apps/guide && npm install && npm run build`. Output dir: `apps/guide/dist`.
 2. Custom domain: `guide.thetalusfieldjournal.com`.
@@ -226,7 +226,7 @@ export function MapsLink({ coord, label }: { coord: [number, number]; label: str
 
 ---
 
-## Phase 7 — Migration & Launch
+## Phase 7: Migration & Launch
 
 1. Export the existing PDF buyer list (CSV from Stripe or wherever v1 sold).
 2. Run a one-off migration script (`scripts/migrate-pdf-buyers.ts`) that, for each PDF buyer:
@@ -234,7 +234,7 @@ export function MapsLink({ coord, label }: { coord: [number, number]; label: str
    - Sends a Resend email: "The Field Guide is now an app. Tap to open: {magic link}."
 3. Update the editorial site's `page-guide.jsx`:
    - Buy button → Stripe Checkout (no longer PDF download).
-   - Add a small "Buyers from before April 2026: check your email — your guide is now an app." line.
+   - Add a small "Buyers from before April 2026, check your email. Your guide is now an app." line.
 4. Newsletter announcement.
 
 ---
@@ -243,19 +243,19 @@ export function MapsLink({ coord, label }: { coord: [number, number]; label: str
 
 - Edit `stops.ts` → `git push` → Pages auto-deploys → service worker tells users on next launch.
 - For larger updates (new trip, new section), bump a `MANIFEST_VERSION` constant and force-prompt all users to refresh.
-- Keep `<UpdatedStamp>` accurate — it's the user's signal that the guide is alive, not abandoned.
+- Keep `<UpdatedStamp>` accurate. It's the user's signal that the guide is alive, not abandoned.
 
 ---
 
 ## Open Questions To Resolve Before Building
 
-1. **Refund mechanism:** the editorial site promises "refund if it doesn't earn its keep" — is that manual (email Cory) or automated within X days?
-2. **Token expiry duration:** suggest 18 months — match it to how long free updates are committed for.
-3. **Sales tax / VAT:** Stripe doesn't auto-handle international VAT. If international buyers > 5%, switch to **Lemon Squeezy** (Merchant of Record, handles all tax) — fee is higher (~5% + 50¢) but less compliance work.
+1. **Refund mechanism:** the editorial site promises "refund if it doesn't earn its keep". Is that manual (email Cory) or automated within X days?
+2. **Token expiry duration:** suggest 18 months; match it to how long free updates are committed for.
+3. **Sales tax / VAT:** Stripe doesn't auto-handle international VAT. If international buyers > 5%, switch to **Lemon Squeezy** (Merchant of Record, handles all tax). Fee is higher (~5% + 50¢) but less compliance work.
 4. **Photo licensing:** confirm Cory has rights to all photos in the guide (he took them or has explicit permission).
 5. **Monthly cap enforcement:** the $29 Stripe product needs inventory limit. Two options:
    - Use Stripe's `limit` on a Payment Link.
-   - Cloudflare Worker checks KV counter before issuing new Checkout sessions; rejects with a "back on the 1st" page when the cap is hit. **Preferred** — gives more control over the sold-out UX.
+   - Cloudflare Worker checks KV counter before issuing new Checkout sessions; rejects with a "back on the 1st" page when the cap is hit. **Preferred.** Gives more control over the sold-out UX.
 
 ---
 
@@ -294,5 +294,5 @@ Solo dev, ~3–4 weeks part-time (or ~1 week full-time):
 - Search across stops (nice but not blocking).
 - User notes / checklist features (scope creep).
 - Push notifications for trail closures (interesting; big scope).
-- Social features ("share this trip plan") — probably never.
+- Social features ("share this trip plan"). Probably never.
 - Print-to-PDF export from the app (so users can still print if they prefer paper).

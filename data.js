@@ -16,7 +16,7 @@ window.CATEGORIES = [
   { slug: "seasonal",   label: "Seasonal Guides",     blurb: "The park, month by month." },
 ];
 
-// Kit — gear lists. Affiliate links go here, not in articles.
+// Kit. Gear lists. Affiliate links go here, not in articles.
 window.KIT = {
   intro: "What I actually carry. Lists I would have wanted on my first trip and still pull up before a long day. The links go to the products themselves; some are affiliate links, which means a small commission if you buy through them at no cost to you. The disclosure page explains the rules I keep for it.",
   lists: [
@@ -54,7 +54,7 @@ window.KIT = {
         { name: "Lightweight cookpot", note: "750ml is enough for one. 1.3L for two.", aff: "#" },
         { name: "Insulated puffy jacket", note: "Synthetic if you might get it wet, down if you trust your weather window.", aff: "#" },
         { name: "Camp shoes", note: "Cheap foam sandals. Worth their weight every single night.", aff: "#" },
-        { name: "Camping shovel (yes, the poop shovel)", note: "You know what this is for. Always practice Leave No Trace — dig a 6-to-8-inch cathole 200 feet from water and trail, do your business, bury it. Pack a double-lined Ziploc to carry your TP back out. Or, if you want to be a real outdoor junkie: just use rocks. No, seriously. You can just use rocks.", aff: "#" },
+        { name: "Camping shovel (yes, the poop shovel)", note: "You know what this is for. Always practice Leave No Trace: dig a 6-to-8-inch cathole 200 feet from water and trail, do your business, bury it. Pack a double-lined Ziploc to carry your TP back out. Or, if you want to be a real outdoor junkie: just use rocks. No, seriously. You can just use rocks.", aff: "#" },
       ],
     },
     {
@@ -63,10 +63,10 @@ window.KIT = {
       summary: "What to keep in the trunk for any Yosemite drive. Adds peace of mind, takes no thought.",
       icon: "III",
       items: [
-        { name: "The John box", note: "Named after my friend John, who came up with the idea. The John box is a single durable storage box that holds every camping essential you ever bring — double-burner Coleman stove, propane, hatchet, paracord, firestarter, flashlight, spare headlamp and batteries, a lantern, a tarp, even a deck of playing cards. Mine doubles as a camp chair and a small table. The whole point is that you don't unpack it between trips. You load it once, store it loaded, and grab it on the way out the door. You'll never forget the propane again. If you'd rather skip the build, John sells a premade version with everything you need to survive and thrive in the wild — myjonbox.com.", aff: "https://www.myjonbox.com/" },
+        { name: "The John box", note: "Named after my friend John, who came up with the idea. The John box is a single durable storage box that holds every camping essential you ever bring: double-burner Coleman stove, propane, hatchet, paracord, firestarter, flashlight, spare headlamp and batteries, a lantern, a tarp, even a deck of playing cards. Mine doubles as a camp chair and a small table. The whole point is that you don't unpack it between trips. You load it once, store it loaded, and grab it on the way out the door. You'll never forget the propane again. If you'd rather skip the build, John sells a premade version with everything you need to survive and thrive in the wild: myjonbox.com.", aff: "https://www.myjonbox.com/" },
         { name: "Tire chains (Nov through April)", note: "Required by California law during chain controls, and the rangers do check. Practice once at home.", aff: "#" },
         { name: "Jumper cables or a portable jump pack", note: "The pack is better. Cell service is unreliable past Crane Flat.", aff: "#" },
-        { name: "5 gallons of water", note: "Not for drinking — for radiators, for hand-washing, for the unexpected.", aff: "#" },
+        { name: "5 gallons of water", note: "Not for drinking. For radiators, for hand-washing, for the unexpected.", aff: "#" },
         { name: "Cooler with ice", note: "Bear-aware: nothing with a smell stays in the car overnight. The lockers exist for a reason.", aff: "#" },
         { name: "Folding camp chairs", note: "You will use them more than anything else you bring.", aff: "#" },
         { name: "Paper map of the park", note: "The official Yosemite Guide map. Cell coverage is poor and the park is large.", aff: "#" },
@@ -96,7 +96,7 @@ window.ARTICLES = [
     slug: "hetch-hetchy-the-other-yosemite-valley",
     cat: "trails",
     title: "Hetch Hetchy: the Yosemite Valley you didn't know you skipped",
-    dek: "Same elevation. Same length. Same kind of granite. Carved by the same kind of glacier as the famous one — and still mostly empty of visitors. Why almost no one goes, and why you should.",
+    dek: "Same elevation. Same length. Same kind of granite. Carved by the same kind of glacier as the famous one, and still mostly empty of visitors. Why almost no one goes, and why you should.",
     date: "April 27, 2026",
     read: "10 min",
     placeholder: "Wapama Falls in spring snowmelt",
@@ -106,7 +106,7 @@ window.ARTICLES = [
     slug: "yosemite-stargazing-where-to-look-up",
     cat: "seasonal",
     title: "Yosemite stargazing: where to look up, and when",
-    dek: "On a moonless August night at Olmsted Point, the Milky Way doesn't look like a thin band — it casts shadows. Where to go, when to go, and how to see the sky the way our ancestors did.",
+    dek: "On a moonless August night at Olmsted Point, the Milky Way doesn't look like a thin band. It casts shadows. Where to go, when to go, and how to see the sky the way our ancestors did.",
     date: "April 27, 2026",
     read: "10 min",
     placeholder: "Milky Way over Sentinel Dome, July",
@@ -117,7 +117,7 @@ window.ARTICLES = [
     slug: "yosemite-for-non-hikers",
     cat: "planning",
     title: "Yosemite for non-hikers: the park you can experience without a trail",
-    dek: "Yosemite is built for non-hikers more thoroughly than almost any park in the country. A complete visit is possible without ever putting on hiking boots — here's how to plan one.",
+    dek: "Yosemite is built for non-hikers more thoroughly than almost any park in the country. A complete visit is possible without ever putting on hiking boots. Here's how to plan one.",
     date: "April 26, 2026",
     read: "8 min",
     placeholder: "Tunnel View from the overlook parking",
@@ -147,7 +147,7 @@ window.ARTICLES = [
     slug: "yosemite-during-smoke-season",
     cat: "seasonal",
     title: "Yosemite during smoke season: how to actually plan around it",
-    dek: "Smoke season in California now runs July through October. The question isn't whether your trip will overlap with it — it's whether you have a plan for when it does.",
+    dek: "Smoke season in California now runs July through October. The question isn't whether your trip will overlap with it. It's whether you have a plan for when it does.",
     date: "April 26, 2026",
     read: "7 min",
     placeholder: "Half Dome through summer haze",
@@ -157,7 +157,7 @@ window.ARTICLES = [
     slug: "yosemite-without-reservations-2026",
     cat: "planning",
     title: "Yosemite without reservations in 2026: a real strategy for the year the cap came off",
-    dek: "The reservation system was a throttle. With it gone in 2026, the park hasn't gotten easier — it's gotten harder. Here's the real strategy.",
+    dek: "The reservation system was a throttle. With it gone in 2026, the park hasn't gotten easier. It's gotten harder. Here's the real strategy.",
     date: "April 26, 2026",
     read: "8 min",
     placeholder: "Cathedral Rocks from the Valley floor",

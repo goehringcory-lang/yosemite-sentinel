@@ -90,7 +90,7 @@ function KitPage({ go }) {
             <div className="eyebrow eyebrow--moss" style={{ marginBottom: 12 }}>Looking for lodging or a guide?</div>
             <h2 style={{ fontFamily: "var(--display)", fontSize: 32, fontWeight: 500, lineHeight: 1.1, margin: "0 0 12px" }}>The directory lives on its own page now.</h2>
             <p style={{ fontFamily: "var(--serif)", fontSize: 17, color: "var(--ink-2)", margin: 0, lineHeight: 1.5 }}>
-              Lodges, inns, guiding services, and outfitters in and around Yosemite — moved into <a href="#places" onClick={(e) => { e.preventDefault(); go("places"); }}>Places &amp; People</a> to keep this page about gear.
+              Lodges, inns, guiding services, and outfitters in and around Yosemite, moved into <a href="#places" onClick={(e) => { e.preventDefault(); go("places"); }}>Places &amp; People</a> to keep this page about gear.
             </p>
           </div>
           <a
