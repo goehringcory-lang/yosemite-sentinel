@@ -299,8 +299,166 @@ function NewsletterInline({ heading, blurb }) {
   );
 }
 
+// ============================================================
+// MapLightbox. Click-to-expand modal with pan + zoom (mouse wheel,
+// drag, touch pinch). Self-contained, no external libraries.
+// ============================================================
+function MapLightbox({ src, alt, caption, onClose }) {
+  const MIN = 1, MAX = 6;
+  const [scale, setScale] = useState(1);
+  const [tx, setTx] = useState(0);
+  const [ty, setTy] = useState(0);
+  const [grabbing, setGrabbing] = useState(false);
+  const dragRef = useRef(null);
+  const pinchRef = useRef(null);
+  const viewportRef = useRef(null);
+  const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
+
+  const reset = () => { setScale(1); setTx(0); setTy(0); };
+
+  const zoomAt = (clientX, clientY, factor) => {
+    setScale(prev => {
+      const next = clamp(prev * factor, MIN, MAX);
+      if (next === prev || !viewportRef.current) return next;
+      const rect = viewportRef.current.getBoundingClientRect();
+      const cx = clientX - rect.left - rect.width / 2;
+      const cy = clientY - rect.top - rect.height / 2;
+      const ratio = next / prev;
+      setTx(t => t * ratio + cx * (1 - ratio));
+      setTy(t => t * ratio + cy * (1 - ratio));
+      if (next === 1) { setTx(0); setTy(0); }
+      return next;
+    });
+  };
+
+  const zoomCenter = (factor) => {
+    if (!viewportRef.current) return;
+    const r = viewportRef.current.getBoundingClientRect();
+    zoomAt(r.left + r.width / 2, r.top + r.height / 2, factor);
+  };
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === "Escape") onClose();
+      else if (e.key === "+" || e.key === "=") zoomCenter(1.4);
+      else if (e.key === "-" || e.key === "_") zoomCenter(1 / 1.4);
+      else if (e.key === "0") reset();
+    };
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [onClose]);
+
+  // Native, non-passive wheel listener so preventDefault works in all browsers.
+  useEffect(() => {
+    const el = viewportRef.current;
+    if (!el) return;
+    const handler = (e) => {
+      e.preventDefault();
+      zoomAt(e.clientX, e.clientY, e.deltaY < 0 ? 1.15 : 1 / 1.15);
+    };
+    el.addEventListener("wheel", handler, { passive: false });
+    return () => el.removeEventListener("wheel", handler);
+  }, []);
+
+  const onMouseDown = (e) => {
+    if (e.button !== 0 || scale === 1) return;
+    dragRef.current = { x: e.clientX - tx, y: e.clientY - ty };
+    setGrabbing(true);
+  };
+  const onMouseMove = (e) => {
+    if (!dragRef.current) return;
+    setTx(e.clientX - dragRef.current.x);
+    setTy(e.clientY - dragRef.current.y);
+  };
+  const stopDrag = () => { dragRef.current = null; setGrabbing(false); };
+
+  const onTouchStart = (e) => {
+    if (e.touches.length === 2) {
+      const dx = e.touches[0].clientX - e.touches[1].clientX;
+      const dy = e.touches[0].clientY - e.touches[1].clientY;
+      pinchRef.current = {
+        dist: Math.hypot(dx, dy),
+        startScale: scale,
+        cx: (e.touches[0].clientX + e.touches[1].clientX) / 2,
+        cy: (e.touches[0].clientY + e.touches[1].clientY) / 2,
+      };
+    } else if (e.touches.length === 1 && scale > 1) {
+      dragRef.current = { x: e.touches[0].clientX - tx, y: e.touches[0].clientY - ty };
+    }
+  };
+  const onTouchMove = (e) => {
+    if (e.touches.length === 2 && pinchRef.current) {
+      e.preventDefault();
+      const dx = e.touches[0].clientX - e.touches[1].clientX;
+      const dy = e.touches[0].clientY - e.touches[1].clientY;
+      const dist = Math.hypot(dx, dy);
+      const target = clamp(pinchRef.current.startScale * (dist / pinchRef.current.dist), MIN, MAX);
+      const factor = target / scale;
+      if (factor !== 1) zoomAt(pinchRef.current.cx, pinchRef.current.cy, factor);
+    } else if (e.touches.length === 1 && dragRef.current) {
+      e.preventDefault();
+      setTx(e.touches[0].clientX - dragRef.current.x);
+      setTy(e.touches[0].clientY - dragRef.current.y);
+    }
+  };
+  const onTouchEnd = (e) => {
+    if (e.touches.length === 0) { pinchRef.current = null; dragRef.current = null; }
+  };
+
+  const onImageClick = (e) => {
+    if (dragRef.current) return;
+    if (scale === 1) zoomAt(e.clientX, e.clientY, 2);
+    else reset();
+  };
+
+  const cursor = scale > 1 ? (grabbing ? "grabbing" : "grab") : "zoom-in";
+
+  return (
+    <div className="lightbox" role="dialog" aria-modal="true" aria-label={alt || caption || "Map"}>
+      <div className="lightbox__backdrop" onClick={onClose} />
+      <div className="lightbox__panel">
+        <div
+          className="lightbox__viewport"
+          ref={viewportRef}
+          onMouseDown={onMouseDown}
+          onMouseMove={onMouseMove}
+          onMouseUp={stopDrag}
+          onMouseLeave={stopDrag}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+          style={{ cursor }}
+        >
+          <img
+            className="lightbox__img"
+            src={src}
+            alt={alt || ""}
+            draggable={false}
+            style={{ transform: `translate(${tx}px, ${ty}px) scale(${scale})` }}
+            onClick={onImageClick}
+          />
+        </div>
+        <div className="lightbox__bar">
+          {caption && <div className="lightbox__caption">{caption}</div>}
+          <div className="lightbox__controls">
+            <button type="button" onClick={() => zoomCenter(1 / 1.4)} aria-label="Zoom out">−</button>
+            <button type="button" onClick={reset} aria-label="Reset zoom">{Math.round(scale * 100)}%</button>
+            <button type="button" onClick={() => zoomCenter(1.4)} aria-label="Zoom in">+</button>
+            <button type="button" className="lightbox__close" onClick={onClose} aria-label="Close">✕</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // Expose
 Object.assign(window, {
   Placeholder, MotifMountains, MotifSun, MotifTrees,
-  Header, Footer, ArticleCard, NewsletterInline,
+  Header, Footer, ArticleCard, NewsletterInline, MapLightbox,
 });

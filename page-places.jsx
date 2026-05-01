@@ -1,7 +1,8 @@
-/* global React, Placeholder, MotifMountains, NewsletterInline */
+/* global React, Placeholder, MotifMountains, MapLightbox, NewsletterInline */
 
 function PlacesPage({ go }) {
   const recs = window.KIT.recommendations;
+  const [mapOpen, setMapOpen] = React.useState(false);
 
   return (
     <div className="page">
@@ -18,16 +19,32 @@ function PlacesPage({ go }) {
 
       {/* Park map */}
       <section className="wrap wrap--narrow" style={{ paddingTop: 48 }}>
-        <Placeholder
-          caption="Yosemite National Park"
-          image="img/yosemite-park-map.jpg"
-          tag="MAP"
-          size="lg"
-          style={{ aspectRatio: "686 / 849" }}
-          motif={<MotifMountains />}
-          credit="Map: National Park Service (public domain)"
-        />
+        <button
+          type="button"
+          className="map-trigger"
+          onClick={() => setMapOpen(true)}
+          aria-label="Open Yosemite map in expanded viewer"
+        >
+          <Placeholder
+            caption="Yosemite National Park"
+            image="img/yosemite-park-map.jpg"
+            tag="MAP"
+            size="lg"
+            style={{ aspectRatio: "686 / 849" }}
+            motif={<MotifMountains />}
+            credit="Map: National Park Service (public domain)"
+          />
+        </button>
       </section>
+
+      {mapOpen && (
+        <MapLightbox
+          src="img/yosemite-park-map.jpg"
+          alt="Yosemite National Park map"
+          caption="Yosemite National Park · NPS"
+          onClose={() => setMapOpen(false)}
+        />
+      )}
 
       {/* Lodging */}
       <section className="wrap" style={{ paddingTop: 56 }}>
